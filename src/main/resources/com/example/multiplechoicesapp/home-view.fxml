@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="rootPane" prefHeight="581.0" prefWidth="565.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.multiplechoicesapp.HomeController">
+    <children>
+        <HBox prefHeight="5.0" prefWidth="565.0" style="-fx-background-color: #0984e3;">
+            <children>
+                <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="5.0" prefWidth="10.0" style="-fx-background-color: none;" text="≡" textFill="WHITE">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+        <GridPane prefHeight="160.0" prefWidth="600.0" style="-fx-border-color: #b2bec3; -fx-border-insets: 5;">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="IT" textFill="#c23616">
+                    <font>
+                        <Font name="System Bold" size="45.0" />
+                    </font>
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                    <GridPane.margin>
+                        <Insets left="10.0" top="5.0" />
+                    </GridPane.margin>
+                </Label>
+                <MenuButton alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="56.0" prefWidth="44.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="C:\Users\dell\Downloads\2698011.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#openQuestionTab" style="-fx-font-size: 16;" text="Question" />
+                        <MenuItem mnemonicParsing="false" onAction="#openCategoriesTab" style="-fx-font-size: 16;" text="Categories" />
+                        <MenuItem mnemonicParsing="false" onAction="#openImportTab" style="-fx-font-size: 16;" text="Import" />
+                        <MenuItem mnemonicParsing="false" onAction="#openExportTab" style="-fx-font-size: 16;" text="Export" />
+                    </items>
+                    <GridPane.margin>
+                        <Insets bottom="5.0" right="15.0" />
+                    </GridPane.margin>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+               <font>
+                  <Font size="16.0" />
+               </font>
+                </MenuButton>
+                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: #0984e3;" text="TURN EDITING ON" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                    <GridPane.margin>
+                        <Insets bottom="4.0" right="15.0" />
+                    </GridPane.margin>
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Button>
+                <HBox GridPane.rowIndex="1">
+                    <Hyperlink text="Home" textFill="#da0d0d">
+                  <font>
+                     <Font size="16.0" />
+                  </font></Hyperlink><Label prefHeight="23.0" prefWidth="2.0" text="/">
+                  <padding>
+                     <Insets top="2.0" />
+                  </padding>
+                  <font>
+                     <Font size="16.0" />
+                  </font></Label>
+                    <Hyperlink text="My Course" textFill="#da0d0d">
+                  <font>
+                     <Font size="16.0" />
+                  </font></Hyperlink>
+               <Label layoutX="51.0" layoutY="10.0" prefHeight="23.0" prefWidth="2.0" text="/">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+                  <padding>
+                     <Insets top="2.0" />
+                  </padding></Label>
+                    <Hyperlink text="THI CUỐI KỲ" textFill="#da0d0d">
+                  <font>
+                     <Font size="16.0" />
+                  </font></Hyperlink>
+               <GridPane.margin>
+                  <Insets left="15.0" top="15.0" />
+               </GridPane.margin>
+                </HBox>
+            </children>
+        </GridPane>
+        <VBox fx:id="testList" prefHeight="510.0" prefWidth="600.0" style="-fx-border-insets: 5; -fx-border-color: #b2bec3;">
+            <children>
+                <Hyperlink text="Kiểm tra cuối kỳ môn IT4895Q">
+                    <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="C:\Users\dell\Downloads\quiz-moodle.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="15.0" top="30.0" />
+                    </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+                </Hyperlink>
+                <Hyperlink layoutX="16.0" layoutY="16.0" text="Thi thử KTLT">
+                    <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="C:\Users\dell\Downloads\quiz-moodle.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="15.0" top="30.0" />
+                    </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+                </Hyperlink>
+                <Hyperlink layoutX="16.0" layoutY="46.0" text="Thi GK2 Tin học 7">
+                    <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="C:\Users\dell\Downloads\quiz-moodle.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="15.0" top="30.0" />
+                    </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+                </Hyperlink>
+                <Hyperlink layoutX="16.0" layoutY="76.0" text="Thi GK2 Sử Địa 7">
+                    <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="C:\Users\dell\Downloads\quiz-moodle.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="15.0" top="30.0" />
+                    </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+                </Hyperlink>
+                <Hyperlink layoutX="16.0" layoutY="106.0" text="Thi GK2 môn Công nghệ">
+                    <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="C:\Users\dell\Downloads\quiz-moodle.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="15.0" top="30.0" />
+                    </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+                </Hyperlink>
+            </children>
+        </VBox>
+    </children>
+</VBox>
