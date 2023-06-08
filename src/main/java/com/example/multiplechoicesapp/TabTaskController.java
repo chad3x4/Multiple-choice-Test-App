@@ -27,6 +27,7 @@ public class TabTaskController implements Initializable {
     @FXML private VBox rootPane;
     @FXML private HBox path;
     FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("home-view.fxml"));
+    FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("add-ques.fxml"));
     @FXML private TabPane tabTask;
     @FXML private Tab questionTab;
     @FXML private Tab categoriesTab;
@@ -75,8 +76,8 @@ public class TabTaskController implements Initializable {
         });
     }
 
-    public void addQuestionHandler(ActionEvent e) {
-
+    public void openAddQues(ActionEvent e) throws IOException {
+        rootPane.getScene().setRoot(fxmlLoader2.load());
     }
     public void addCategoryHandler(ActionEvent e) {
 

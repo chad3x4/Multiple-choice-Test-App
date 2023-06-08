@@ -16,7 +16,7 @@ public class JdbcUtils {
     }
 
     public static Connection getConn() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/[Tên Database]",
-                "root", "Mật khẩu user root");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/ooopappdb",
+                "root", "chung224864@");
     }
 }
