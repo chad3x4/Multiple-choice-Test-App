@@ -1,4 +1,4 @@
-package com.example.multiplechoicesapp;
+package com.example.multiplechoiceapp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

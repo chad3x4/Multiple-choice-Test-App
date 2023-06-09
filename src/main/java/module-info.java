@@ -5,6 +5,6 @@ module com.example.multiplechoicesapp {
 
     requires org.controlsfx.controls;
 
-    opens com.example.multiplechoicesapp to javafx.fxml;
-    exports com.example.multiplechoicesapp;
+    opens com.example.multiplechoiceapp to javafx.fxml;
+    exports com.example.multiplechoiceapp;
 }

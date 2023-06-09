@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="rootPane" prefHeight="581.0" prefWidth="565.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.multiplechoicesapp.HomeController">
+<VBox fx:id="rootPane" prefHeight="581.0" prefWidth="565.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.multiplechoiceapp.HomeController">
     <children>
         <HBox prefHeight="5.0" prefWidth="565.0" style="-fx-background-color: #0984e3;">
             <children>

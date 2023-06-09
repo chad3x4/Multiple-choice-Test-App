@@ -1,4 +1,4 @@
-package com.example.multiplechoicesapp;
+package com.example.multiplechoiceapp;
 
 import com.example.conf.PathModifier;
 import javafx.event.ActionEvent;
