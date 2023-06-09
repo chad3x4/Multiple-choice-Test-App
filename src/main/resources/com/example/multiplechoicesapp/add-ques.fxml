@@ -161,7 +161,7 @@
         <content>
           <AnchorPane>
                <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.topAnchor="20.0">
+                        <VBox fx:id="addPane" prefWidth="800.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                             <children>
                                 <Label prefHeight="36.0" prefWidth="408.0" text="Adding a multiple choice question" textFill="#c23616">
                                     <font>
@@ -234,36 +234,103 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="399.0" prefHeight="32.0" prefWidth="350.0" AnchorPane.leftAnchor="400.0" />
+                              <TextField disable="true" layoutX="399.0" prefHeight="32.0" prefWidth="350.0" style="-fx-opacity: 1;" text="1" AnchorPane.leftAnchor="400.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font></TextField>
                            </children>
                            <VBox.margin>
                               <Insets top="20.0" />
                            </VBox.margin>
                         </AnchorPane>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox fx:id="choicePane">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: gray;">
+                              <VBox style="-fx-background-color: #dcdde1;">
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
                                           <Label text="Choice 1">
                                              <HBox.margin>
-                                                <Insets left="15.0" />
+                                                <Insets left="20.0" />
                                              </HBox.margin>
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
                                           </Label>
-                                          <TextField>
+                                          <TextArea prefHeight="200.0" prefWidth="350.0">
                                              <HBox.margin>
-                                                <Insets />
+                                                <Insets left="20.0" />
                                              </HBox.margin>
-                                          </TextField>
+                                          </TextArea>
                                        </children>
                                        <VBox.margin>
                                           <Insets bottom="10.0" top="10.0" />
                                        </VBox.margin>
                                     </HBox>
+                                    <HBox layoutX="10.0" layoutY="20.0" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label prefWidth="61.0" text="Grade">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="score" prefWidth="350.0" promptText="None">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
                                  </children>
                                  <VBox.margin>
-                                    <Insets left="300.0" />
+                                    <Insets bottom="20.0" left="300.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox layoutX="310.0" layoutY="40.0" style="-fx-background-color: #dcdde1;">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Choice 2">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <TextArea prefHeight="200.0" prefWidth="350.0">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </TextArea>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="20.0" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label prefWidth="61.0" text="Grade">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="score1" prefWidth="350.0" promptText="None">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="300.0" />
                                  </VBox.margin>
                               </VBox>
                            </children>
@@ -274,14 +341,42 @@
                               <Insets top="30.0" />
                            </padding>
                         </VBox>
-                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" style="-fx-background-color: #c23616;" text="SAVE CHANGES" textFill="WHITE">
+                                <Button mnemonicParsing="false" onAction="#append2Choices" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #0984e3;" text="BLANKS FOR 2 MORE CHOICES" textFill="WHITE">
                                     <VBox.margin>
-                                        <Insets bottom="50.0" left="400.0" top="25.0" />
+                                        <Insets bottom="25.0" left="400.0" top="25.0" />
                                     </VBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
                                 </Button>
+                        <Button layoutX="420.0" layoutY="1133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="320.0" style="-fx-background-color: #0984e3;" text="SAVE CHANGES AND CONTINUE EDITING" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="30.0" left="400.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="410.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #c23616;" text="SAVE CHANGES" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="400.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #c23616;" text="CANCEL" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
                             </children>
                      <padding>
                         <Insets left="10.0" />
