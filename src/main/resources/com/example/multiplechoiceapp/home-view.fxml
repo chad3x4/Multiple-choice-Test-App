@@ -55,7 +55,7 @@
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="C:\Users\dell\Downloads\2698011.png" />
+                                <Image url="@../../../assets/setting.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -121,7 +121,7 @@
                     <graphic>
                         <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="C:\Users\dell\Downloads\quiz-moodle.jpg" />
+                                <Image url="@../../../assets/quiz-moodle.jpg" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -136,7 +136,7 @@
                     <graphic>
                         <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="C:\Users\dell\Downloads\quiz-moodle.jpg" />
+                                <Image url="@../../../assets/quiz-moodle.jpg" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -151,7 +151,7 @@
                     <graphic>
                         <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="C:\Users\dell\Downloads\quiz-moodle.jpg" />
+                                <Image url="@../../../assets/quiz-moodle.jpg" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -166,7 +166,7 @@
                     <graphic>
                         <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="C:\Users\dell\Downloads\quiz-moodle.jpg" />
+                                <Image url="@../../../assets/quiz-moodle.jpg" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -181,7 +181,7 @@
                     <graphic>
                         <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="C:\Users\dell\Downloads\quiz-moodle.jpg" />
+                                <Image url="@../../../assets/quiz-moodle.jpg" />
                             </image>
                         </ImageView>
                     </graphic>

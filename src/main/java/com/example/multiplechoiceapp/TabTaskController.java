@@ -1,5 +1,6 @@
 package com.example.multiplechoiceapp;
 
+import com.example.conf.Noti;
 import com.example.conf.PathModifier;
 import com.example.pojo.Category;
 import com.example.service.CategoryService;
@@ -9,9 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -35,6 +34,9 @@ public class TabTaskController implements Initializable {
     @FXML private Tab exportTab;
     @FXML private ComboBox<Category> cbCategories;
     @FXML private ComboBox<Category> cbCategories1;
+    @FXML private TextField catName;
+    @FXML private TextArea catInfo;
+    @FXML private TextField catId;
 //    @FXML private RadioButton
 
     @Override
@@ -80,7 +82,16 @@ public class TabTaskController implements Initializable {
         rootPane.getScene().setRoot(fxmlLoader2.load());
     }
     public void addCategoryHandler(ActionEvent e) {
+        Category sel = cbCategories1.getSelectionModel().getSelectedItem();
+        Category c = new Category(catId.getText(), sel.getName(), catName.getText(), catInfo.getText(), sel.getLevel() + 1, 0);
+        CategoryService cs = new CategoryService();
+        try {
+            cs.addCategory(c);
 
+            Noti.getBox("Add category successful!", Alert.AlertType.INFORMATION).show();
+        } catch (SQLException ex) {
+            Noti.getBox("Add category failed!", Alert.AlertType.WARNING).show();
+        }
     }
 
     public void importFileHandler(ActionEvent e) {

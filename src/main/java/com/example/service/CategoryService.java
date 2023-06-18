@@ -4,14 +4,28 @@ import com.example.conf.CategoriesTreeList;
 import com.example.conf.JdbcUtils;
 import com.example.pojo.Category;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryService {
+    //Add information of c to db
+    public void addCategory(Category c) throws SQLException {
+        try (Connection conn = JdbcUtils.getConn()) {
+            conn.setAutoCommit(false);
+            PreparedStatement stm = conn.prepareStatement("INSERT INTO category(cat_id, name, parent, info, level, ques_quant) VALUES(?, ?, ?, ?, ?, ?)");
+            stm.setString(1, c.getCatId());
+            stm.setString(2, c.getName());
+            stm.setString(3, c.getParent());
+            stm.setString(4, c.getInfo());
+            stm.setInt(5, c.getLevel());
+            stm.setInt(6, c.getQuesQuant());
+            stm.executeUpdate();
+
+            conn.commit();
+        }
+    }
+
     //Get all categories in hierarchical order
     public List<Category> getCategories() throws SQLException {
         List<Category> tmp = new ArrayList<>();
@@ -32,11 +46,5 @@ public class CategoryService {
             tmp.removeAll(results);
         }
         return results;
-    }
-
-
-
-    public void addCategory() {
-
     }
 }

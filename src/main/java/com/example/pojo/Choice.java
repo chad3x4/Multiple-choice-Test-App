@@ -2,16 +2,20 @@ package com.example.pojo;
 
 public class Choice {
     private String choiceId;//uuid
+    private String quesId;
     private String content;
-    private boolean isCorrect;
+    private int score;
+    private String imgLink;
 
     public Choice() {
     }
 
-    public Choice(String choiceId, String content, boolean isCorrect) {
+    public Choice(String choiceId, String quesId, String content, int score, String imgLink) {
         this.choiceId = choiceId;
+        this.quesId = quesId;
         this.content = content;
-        this.isCorrect = isCorrect;
+        this.score = score;
+        this.imgLink = imgLink;
     }
     public String getChoiceId() {
         return choiceId;
@@ -19,6 +23,14 @@ public class Choice {
 
     public void setChoiceId(String choiceId) {
         this.choiceId = choiceId;
+    }
+
+    public String getQuesId() {
+        return quesId;
+    }
+
+    public void setQuesId(String quesId) {
+        this.quesId = quesId;
     }
 
     public String getContent() {
@@ -29,11 +41,19 @@ public class Choice {
         this.content = content;
     }
 
-    public boolean isCorrect() {
-        return isCorrect;
+    public int getScore() {
+        return score;
     }
 
-    public void setCorrect(boolean correct) {
-        isCorrect = correct;
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public String getImgLink() {
+        return imgLink;
+    }
+
+    public void setImgLink(String imgLink) {
+        this.imgLink = imgLink;
     }
 }

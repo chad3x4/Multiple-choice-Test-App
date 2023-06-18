@@ -63,7 +63,7 @@
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="C:\Users\dell\Downloads\2698011.png" />
+                                <Image url="@../../../assets/setting.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -83,14 +83,6 @@
                   <Font size="16.0" />
                </font>
                 </MenuButton>
-                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: #0984e3;" text="TURN EDITING ON" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
-                    <GridPane.margin>
-                        <Insets bottom="4.0" right="15.0" />
-                    </GridPane.margin>
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Button>
                 <HBox fx:id="path" GridPane.rowIndex="1">
                     <Hyperlink onAction="#goHomePage" text="Home" textFill="#da0d0d">
                   <font>
@@ -247,7 +239,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="399.0" prefHeight="32.0" prefWidth="350.0" AnchorPane.leftAnchor="400.0" />
+                              <TextField fx:id="catName" layoutX="399.0" prefHeight="32.0" prefWidth="350.0" AnchorPane.leftAnchor="400.0" />
                            </children>
                            <VBox.margin>
                               <Insets top="20.0" />
@@ -260,7 +252,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextArea layoutX="348.0" layoutY="1.0" prefHeight="100.0" prefWidth="350.0" AnchorPane.leftAnchor="400.0" />
+                              <TextArea fx:id="catInfo" layoutX="348.0" layoutY="1.0" prefHeight="100.0" prefWidth="350.0" AnchorPane.leftAnchor="400.0" />
                            </children>
                            <VBox.margin>
                               <Insets top="20.0" />
@@ -273,7 +265,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="399.0" prefHeight="32.0" prefWidth="350.0" AnchorPane.leftAnchor="400.0" />
+                              <TextField fx:id="catId" layoutX="399.0" prefHeight="32.0" prefWidth="350.0" AnchorPane.leftAnchor="400.0" />
                            </children>
                            <VBox.margin>
                               <Insets top="20.0" />
@@ -363,7 +355,7 @@
                               <Insets top="20.0" />
                            </VBox.margin>
                         </AnchorPane>
-                        <Button mnemonicParsing="false" onAction="#importFileHandler" prefHeight="35.0" prefWidth="135.0" style="-fx-background-color: #c23616;" text="IMPORT" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#importFileHandler" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #c23616;" text="IMPORT" textFill="WHITE">
                            <VBox.margin>
                               <Insets left="400.0" top="25.0" />
                            </VBox.margin>

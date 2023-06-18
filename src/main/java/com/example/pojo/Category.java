@@ -24,9 +24,10 @@ public class Category {
     public String toString() {
         String prefix = "";
         for (int i = 0; i<this.level; i++) {
-            prefix += "         ";
+            prefix += "      ";
         }
-        return prefix + this.name + " (" + this.quesQuant + ")";
+        if (this.quesQuant == 0) return prefix + this.name;
+        else return prefix + this.name + " (" + this.quesQuant + ")";
     }
 
     public String getCatId() {

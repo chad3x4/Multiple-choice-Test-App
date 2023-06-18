@@ -2,6 +2,7 @@ package com.example.multiplechoiceapp;
 
 import com.example.conf.PathModifier;
 import com.example.pojo.Category;
+import com.example.pojo.Question;
 import com.example.pojo.Score;
 import com.example.service.CategoryService;
 import com.example.service.ScoreService;
@@ -12,9 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -44,6 +43,8 @@ public class AddQuesController implements Initializable {
 
     @FXML private VBox addPane;
     @FXML private ComboBox<Category> cbCategories;
+    @FXML private TextField quesName;
+    @FXML private TextArea quesText;
     @FXML private VBox choicePane;
     @FXML private ComboBox<Score> score;
     @FXML private ComboBox<Score> score1;
@@ -67,10 +68,11 @@ public class AddQuesController implements Initializable {
         //Choice 3
         Label l3_1 = new Label("Choice 3");
         TextArea t3 = new TextArea();
+        Button insertImg3 = new Button("Insert Image");
         Label l3_2 = new Label("Grade");
         ComboBox<Score> score2 = new ComboBox<>(FXCollections.observableList(s2.getScores()));
 
-        HBox h1 = new HBox(l3_1, t3);
+        HBox h1 = new HBox(l3_1, t3, insertImg3);
         HBox h2 = new HBox(l3_2, score2);
         VBox choice3 = new VBox(h1, h2);
 
@@ -86,6 +88,7 @@ public class AddQuesController implements Initializable {
         t3.setPrefSize(350, 200);
         HBox.setMargin(l3_1, layout);
         HBox.setMargin(t3, layout);
+        HBox.setMargin(insertImg3, new Insets(0, 0, 0, 6));
 
         l3_2.setPrefWidth(61);
         l3_2.setStyle("-fx-font-size: 16px;");
@@ -96,10 +99,11 @@ public class AddQuesController implements Initializable {
         //Choice 4
         Label l4_1 = new Label("Choice 4");
         TextArea t4 = new TextArea();
+        Button insertImg4 = new Button("Insert Image");
         Label l4_2 = new Label("Grade");
         ComboBox<Score> score3 = new ComboBox<>(FXCollections.observableList(s2.getScores()));
 
-        HBox h3 = new HBox(l4_1, t4);
+        HBox h3 = new HBox(l4_1, t4, insertImg4);
         HBox h4 = new HBox(l4_2, score3);
         VBox choice4 = new VBox(h3, h4);
 
@@ -115,6 +119,7 @@ public class AddQuesController implements Initializable {
         t4.setPrefSize(350, 200);
         HBox.setMargin(l4_1, layout);
         HBox.setMargin(t4, layout);
+        HBox.setMargin(insertImg4, new Insets(0, 0, 0,6));
 
         l4_2.setPrefWidth(61);
         l4_2.setStyle("-fx-font-size: 16px;");
@@ -126,8 +131,13 @@ public class AddQuesController implements Initializable {
         addPane.getChildren().remove(7);
     }
 
-    public void addQuestionHandler(ActionEvent e) {
+    public void saveQuestion(ActionEvent e) {
 
+    }
+
+    public void addQuestionHandler(ActionEvent e) {
+        Category c = cbCategories.getSelectionModel().getSelectedItem();
+        Question q = new Question(c.getCatId() + (c.getQuesQuant()+1), c.getName(), quesName.getText(), quesText.getText(), "");
     }
     public void goHomePage(ActionEvent e) throws IOException {
         rootPane.getScene().setRoot(fxmlLoader.load());
