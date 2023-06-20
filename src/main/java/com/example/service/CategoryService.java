@@ -13,13 +13,14 @@ public class CategoryService {
     public void addCategory(Category c) throws SQLException {
         try (Connection conn = JdbcUtils.getConn()) {
             conn.setAutoCommit(false);
-            PreparedStatement stm = conn.prepareStatement("INSERT INTO category(cat_id, name, parent, info, level, ques_quant) VALUES(?, ?, ?, ?, ?, ?)");
+            PreparedStatement stm = conn.prepareStatement("INSERT INTO category(cat_id, name, parent_id, info, level, ques_quant, ques) VALUES(?, ?, ?, ?, ?, ?, ?)");
             stm.setString(1, c.getCatId());
             stm.setString(2, c.getName());
-            stm.setString(3, c.getParent());
+            stm.setString(3, c.getParentId());
             stm.setString(4, c.getInfo());
             stm.setInt(5, c.getLevel());
             stm.setInt(6, c.getQuesQuant());
+            stm.setInt(7, c.getQues());
             stm.executeUpdate();
 
             conn.commit();
@@ -35,14 +36,14 @@ public class CategoryService {
             ResultSet rs = stm.executeQuery("SELECT * FROM category");
 
             while (rs.next()) {
-                Category c = new Category(rs.getString("cat_id"), rs.getString("parent"), rs.getString("name"),
-                        rs.getString("info"), rs.getInt("level"), rs.getInt("ques_quant"));
+                Category c = new Category(rs.getString("cat_id"), rs.getString("parent_id"), rs.getString("name"),
+                        rs.getString("info"), rs.getInt("level"), rs.getInt("ques_quant"), rs.getInt("ques"));
                 tmp.add(c);
             }
         }
         //Add categories to list in hierarchical order by recursion
         while (tmp.size()!=0) {
-            results.addAll(CategoriesTreeList.appendCategory(0, "none", tmp));
+            results.addAll(CategoriesTreeList.appendCategory(0, "NON", tmp));
             tmp.removeAll(results);
         }
         return results;

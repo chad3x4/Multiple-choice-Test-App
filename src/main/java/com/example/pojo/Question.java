@@ -2,7 +2,7 @@ package com.example.pojo;
 
 public class Question {
     private String quesId;
-    private String category;
+    private String catId;
     private String quesName;
     private String quesText;
     private String imgLink;
@@ -10,9 +10,9 @@ public class Question {
     public Question() {
     }
 
-    public Question(String quesId, String category, String quesName, String quesText, String imgLink) {
+    public Question(String quesId, String catId, String quesName, String quesText, String imgLink) {
         this.quesId = quesId;
-        this.category = category;
+        this.catId = catId;
         this.quesName = quesName;
         this.quesText = quesText;
         this.imgLink = imgLink;
@@ -26,12 +26,12 @@ public class Question {
         this.quesId = quesId;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCatId() {
+        return catId;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCatId(String catId) {
+        this.catId = catId;
     }
 
     public String getImgLink() {

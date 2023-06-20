@@ -290,7 +290,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <ComboBox fx:id="score" prefWidth="350.0" promptText="None">
+                                          <ComboBox fx:id="score1" prefWidth="350.0" promptText="None">
                                              <HBox.margin>
                                                 <Insets left="20.0" />
                                              </HBox.margin>
@@ -339,7 +339,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <ComboBox fx:id="score1" prefWidth="350.0" promptText="None">
+                                          <ComboBox fx:id="score2" prefWidth="350.0" promptText="None">
                                              <HBox.margin>
                                                 <Insets left="20.0" />
                                              </HBox.margin>
@@ -385,7 +385,7 @@
                                     <Insets left="400.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #c23616;" text="CANCEL" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#backToTab" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #c23616;" text="CANCEL" textFill="WHITE">
                                  <font>
                                     <Font size="16.0" />
                                  </font>

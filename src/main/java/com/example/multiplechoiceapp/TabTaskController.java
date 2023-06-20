@@ -25,8 +25,6 @@ import java.util.logging.Logger;
 public class TabTaskController implements Initializable {
     @FXML private VBox rootPane;
     @FXML private HBox path;
-    FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("home-view.fxml"));
-    FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("add-ques.fxml"));
     @FXML private TabPane tabTask;
     @FXML private Tab questionTab;
     @FXML private Tab categoriesTab;
@@ -79,17 +77,23 @@ public class TabTaskController implements Initializable {
     }
 
     public void openAddQues(ActionEvent e) throws IOException {
-        rootPane.getScene().setRoot(fxmlLoader2.load());
+        VBox addQuesRoot = new FXMLLoader(getClass().getResource("add-ques.fxml")).load();
+        ScrollPane scroll = (ScrollPane)addQuesRoot.lookup("ScrollPane");
+        ComboBox cbCategories2 = (ComboBox)scroll.getContent().lookup("AnchorPane").lookup("VBox").lookup("AnchorPane").lookup("ComboBox");
+        cbCategories2.getSelectionModel().select(cbCategories.getSelectionModel().getSelectedIndex());
+        rootPane.getScene().setRoot(addQuesRoot);
     }
     public void addCategoryHandler(ActionEvent e) {
-        Category sel = cbCategories1.getSelectionModel().getSelectedItem();
-        Category c = new Category(catId.getText(), sel.getName(), catName.getText(), catInfo.getText(), sel.getLevel() + 1, 0);
-        CategoryService cs = new CategoryService();
         try {
+            Category sel = cbCategories1.getSelectionModel().getSelectedItem();
+            Category c;
+            if (sel==null) c = new Category(catId.getText(), "NON", catName.getText(), catInfo.getText(), 0, 0, 0);
+            else c = new Category(catId.getText(), sel.getCatId(), catName.getText(), catInfo.getText(), sel.getLevel() + 1, 0, 0);
+            CategoryService cs = new CategoryService();
             cs.addCategory(c);
 
             Noti.getBox("Add category successful!", Alert.AlertType.INFORMATION).show();
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Noti.getBox("Add category failed!", Alert.AlertType.WARNING).show();
         }
     }
@@ -98,7 +102,7 @@ public class TabTaskController implements Initializable {
 
     }
     public void goHomePage(ActionEvent e) throws IOException {
-        rootPane.getScene().setRoot(fxmlLoader.load());
+        rootPane.getScene().setRoot(new FXMLLoader(App.class.getResource("home-view.fxml")).load());
     }
     public void openQuestionTab(ActionEvent e) {
         tabTask.getSelectionModel().select(0);

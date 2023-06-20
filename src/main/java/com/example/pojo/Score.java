@@ -13,8 +13,9 @@ public class Score {
         return this.value;
     }
 
-    public String getValue() {
-        return value;
+    public int getValue() {
+        String r = value.substring(0, value.length()-1);
+        return Integer.parseInt(r);
     }
 
     public void setValue(String score) {

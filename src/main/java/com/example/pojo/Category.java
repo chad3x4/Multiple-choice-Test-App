@@ -2,29 +2,31 @@ package com.example.pojo;
 
 public class Category {
     private String catId;
-    private String parent;
+    private String parentId;
     private String name;
     private String info;
     private int level;
     private int quesQuant;
+    private int ques;
 
     public Category() {
     }
 
-    public Category(String catId, String parent, String name, String info, int level, int quesQuant) {
+    public Category(String catId, String parentId, String name, String info, int level, int quesQuant, int ques) {
         this.catId = catId;
-        this.parent = parent;
+        this.parentId = parentId;
         this.name = name;
         this.info = info;
         this.level = level;
         this.quesQuant = quesQuant;
+        this.ques = ques;
     }
 
     @Override
     public String toString() {
         String prefix = "";
         for (int i = 0; i<this.level; i++) {
-            prefix += "      ";
+            prefix += "    ";
         }
         if (this.quesQuant == 0) return prefix + this.name;
         else return prefix + this.name + " (" + this.quesQuant + ")";
@@ -38,12 +40,12 @@ public class Category {
         this.catId = catId;
     }
 
-    public String getParent() {
-        return parent;
+    public String getParentId() {
+        return parentId;
     }
 
-    public void setParent(String parent) {
-        this.parent = parent;
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 
     public String getName() {
@@ -76,5 +78,13 @@ public class Category {
 
     public void setQuesQuant(int quesQuant) {
         this.quesQuant = quesQuant;
+    }
+
+    public int getQues() {
+        return ques;
+    }
+
+    public void setQues(int ques) {
+        this.ques = ques;
     }
 }

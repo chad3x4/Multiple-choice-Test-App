@@ -16,9 +16,9 @@ public class QuestionService {
     public void addQuestion(Question q, List<Choice> choices) throws SQLException {
         try (Connection conn = JdbcUtils.getConn()) {
             conn.setAutoCommit(false);
-            PreparedStatement stm1 = conn.prepareStatement("INSERT INTO question(ques_id, category, ques_name, ques_text, img_link) VALUES(?, ?, ?, ?, ?)");
+            PreparedStatement stm1 = conn.prepareStatement("INSERT INTO question(ques_id, cat_id, ques_name, ques_text, img_link) VALUES(?, ?, ?, ?, ?)");
             stm1.setString(1, q.getQuesId());
-            stm1.setString(2, q.getCategory());
+            stm1.setString(2, q.getCatId());
             stm1.setString(3, q.getQuesName());
             stm1.setString(4, q.getQuesText());
             stm1.setString(5, q.getImgLink());
@@ -34,6 +34,9 @@ public class QuestionService {
 
                 stm2.executeUpdate();
             }
+            PreparedStatement stm3 = conn.prepareStatement("UPDATE category SET ques_quant = ques_quant+1, ques = ques+1 WHERE cat_id = ?");
+            stm3.setString(1, q.getCatId());
+            stm3.executeUpdate();
             //Avoid commit data to db if any statements fail
             conn.commit();
         }
