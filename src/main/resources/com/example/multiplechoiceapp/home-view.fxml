@@ -75,7 +75,7 @@
                   <Font size="16.0" />
                </font>
                 </MenuButton>
-                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: #0984e3;" text="TURN EDITING ON" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                <Button mnemonicParsing="false" onAction="#openAddQuiz" prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: #0984e3;" text="TURN EDITING ON" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                     <GridPane.margin>
                         <Insets bottom="4.0" right="15.0" />
                     </GridPane.margin>

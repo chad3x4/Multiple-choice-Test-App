@@ -38,6 +38,11 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
+    public void openAddQuiz() throws IOException {
+        FXMLLoader fxmlLoader3 = new FXMLLoader(getClass().getResource("add-quiz.fxml"));
+        rootPane.getScene().setRoot(fxmlLoader3.load());
+    }
+
     public void openQuestionTab(ActionEvent e) {
         List<Object> p = PathModifier.addPath("Question");
         pathPane.getChildren().addAll((Node) p.get(0), (Node) p.get(1));

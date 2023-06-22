@@ -8,10 +8,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -156,12 +158,12 @@
                                  </opaqueInsets></ComboBox>
                                     </children>
                            <VBox.margin>
-                              <Insets left="10.0" top="10.0" />
+                              <Insets left="10.0" />
                            </VBox.margin>
                                 </HBox>
                                 <Label prefHeight="25.0" prefWidth="376.0" style="-fx-alignment: center;" text="The default category for questions shared in context">
                                     <VBox.margin>
-                                        <Insets left="25.0" top="20.0" />
+                                        <Insets left="25.0" top="5.0" />
                                     </VBox.margin>
                            <font>
                               <Font size="16.0" />
@@ -169,7 +171,7 @@
                                 </Label>
                                 <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="322.0" style="-fx-alignment: center;" text="Also show questions from subcategories">
                                     <VBox.margin>
-                                        <Insets left="30.0" top="20.0" />
+                                        <Insets left="30.0" top="5.0" />
                                     </VBox.margin>
                            <font>
                               <Font size="16.0" />
@@ -177,7 +179,7 @@
                                 </CheckBox>
                                 <CheckBox disable="true" mnemonicParsing="false" opacity="0.75" prefHeight="25.0" prefWidth="211.0" style="-fx-alignment: center;" text="Also show old questions">
                                     <VBox.margin>
-                                        <Insets left="30.0" top="20.0" />
+                                        <Insets left="30.0" top="5.0" />
                                     </VBox.margin>
                            <font>
                               <Font size="16.0" />
@@ -185,12 +187,41 @@
                                 </CheckBox>
                                 <Button mnemonicParsing="false" onAction="#openAddQues" prefHeight="35.0" prefWidth="236.0" style="-fx-background-color: #0984e3;" text="CREATE A NEW QUESTION..." textFill="WHITE">
                                     <VBox.margin>
-                                        <Insets left="25.0" top="20.0" />
+                                        <Insets left="25.0" top="5.0" />
                                     </VBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
                                 </Button>
+                        <AnchorPane prefHeight="10.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Questions" AnchorPane.leftAnchor="0.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Edit" AnchorPane.rightAnchor="80.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="25.0" top="10.0" />
+                           </VBox.margin>
+                        </AnchorPane>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TreeView layoutX="56.0" layoutY="6.0" prefHeight="200.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </ScrollPane>
                             </children>
                      <padding>
                         <Insets left="10.0" />

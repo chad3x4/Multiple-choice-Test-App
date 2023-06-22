@@ -10,7 +10,6 @@ import com.example.service.CategoryService;
 import com.example.service.QuestionService;
 import com.example.service.ScoreService;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -64,7 +63,7 @@ public class AddQuesController implements Initializable {
         this.score2.setItems(FXCollections.observableList(s1.getScores()));
     }
 
-    public void append2Choices(ActionEvent e) {
+    public void append2Choices() {
         ScoreService s2 = new ScoreService();
         Insets layout = new Insets(0, 0, 0, 20);
         //Choice 3
@@ -163,14 +162,26 @@ public class AddQuesController implements Initializable {
         }
     }
 
-    public void addQuestionHandler(ActionEvent e) {
+    public void addQuestionHandler() {
         this.saveQuestion();
+
+        List<Object> p = PathModifier.addPath("Question");
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("tab-task.fxml"));
+        VBox tabTaskRoot1 = null;
+        try {
+            tabTaskRoot1 = fxmlLoader1.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        HBox pathPane1 = (HBox) tabTaskRoot1.lookup("GridPane").lookup("HBox");
+        pathPane1.getChildren().addAll((Node) p.get(0), (Node) p.get(1));
+        rootPane.getScene().setRoot(tabTaskRoot1);
     }
 
-    public void goHomePage(ActionEvent e) throws IOException {
+    public void goHomePage() throws IOException {
         rootPane.getScene().setRoot(fxmlLoader.load());
     }
-    public void backToTab(ActionEvent e) {
+    public void backToTab() {
         List<Object> p = PathModifier.addPath("Question");
         pathPane.getChildren().addAll((Node) p.get(0), (Node) p.get(1));
         rootPane.getScene().setRoot(tabTaskRoot);
