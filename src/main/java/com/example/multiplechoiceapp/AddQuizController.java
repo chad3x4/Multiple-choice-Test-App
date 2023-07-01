@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
@@ -29,6 +30,7 @@ public class AddQuizController implements Initializable {
     @FXML private Spinner closeHour;
     @FXML private Spinner closeMinute;
     @FXML private TextField duration;
+    @FXML private CheckBox enable;
     @FXML private Spinner chooseUnit;
     @FXML private Spinner chooseAction;
     @Override
@@ -92,6 +94,16 @@ public class AddQuizController implements Initializable {
 
     public void createQuizHandler() {
 
+    }
+
+    public void enableDuration() {
+        if (enable.isSelected()) {
+            duration.setDisable(false);
+            chooseUnit.setDisable(false);
+        } else {
+            duration.setDisable(true);
+            chooseUnit.setDisable(true);
+        }
     }
 
     public void goHomePage() throws IOException {

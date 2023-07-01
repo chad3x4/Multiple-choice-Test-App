@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
@@ -79,6 +80,9 @@
                     <font>
                         <Font size="16.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </MenuButton>
                 <HBox GridPane.rowIndex="1">
                     <Hyperlink onAction="#goHomePage" text="Home" textFill="#da0d0d">
@@ -175,13 +179,19 @@
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <TextField prefHeight="35.0" prefWidth="51.0" text="10.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="58.0" />
+                  <TextField prefHeight="35.0" prefWidth="51.0" text="10.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="58.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextField>
                         <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" style="-fx-background-color: #0984e3;" text="SAVE" textFill="WHITE" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="58.0">
                             <font>
                                 <Font size="16.0" />
                             </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                         </Button>
-                  <Button layoutX="1229.0" layoutY="68.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="126.0" style="-fx-background-color: #0984e3;" text="REPAGINATE" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="100.0">
+                  <Button disable="true" layoutX="1229.0" layoutY="68.0" mnemonicParsing="false" opacity="0.69" prefHeight="35.0" prefWidth="126.0" style="-fx-background-color: #0984e3;" text="REPAGINATE" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="100.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -190,23 +200,43 @@
                      <font>
                         <Font size="16.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Text layoutX="40.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total marks:" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="108.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <CheckBox layoutX="1161.0" layoutY="135.0" mnemonicParsing="false" text="Shuffle" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="135.0" />
+                  <CheckBox layoutX="1161.0" layoutY="135.0" mnemonicParsing="false" text="Shuffle" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="135.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></CheckBox>
                   <Text fill="#da0d0d" layoutX="30.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Page 1" AnchorPane.topAnchor="178.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <MenuButton layoutX="582.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: #ffffff;" text="Add" textFill="#0984e3" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="175.0">
+                  <MenuButton alignment="BOTTOM_CENTER" layoutX="582.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: #ffffff;" text="Add" textFill="#0984e3" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="175.0">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="a new question" />
-                      <MenuItem mnemonicParsing="false" text="from question bank" />
+                      <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0984e3;" text="a new question">
+                           <graphic>
+                              <Text fill="#0984e3" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20;" text="+" />
+                           </graphic></MenuItem>
+                      <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0984e3;" text="from question bank">
+                           <graphic>
+                              <Text fill="#0984e3" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20;" text="+" />
+                           </graphic></MenuItem>
+                        <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0984e3;" text="a random question">
+                           <graphic>
+                              <Text fill="#0984e3" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20;" text="+" />
+                           </graphic>
+                        </MenuItem>
                     </items>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </MenuButton>
                     </children>
                 </AnchorPane>

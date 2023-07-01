@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
@@ -80,6 +81,9 @@
                     <font>
                         <Font size="16.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </MenuButton>
                 <HBox GridPane.rowIndex="1">
                     <Hyperlink onAction="#goHomePage" text="Home" textFill="#da0d0d">
@@ -170,6 +174,9 @@
                            <font>
                               <Font size="13.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </CheckBox>
                         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="593.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="628.0">
                            <image>
@@ -210,22 +217,61 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Spinner fx:id="openDay" layoutX="399.0" layoutY="12.0" prefWidth="50.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="12.0" />
-                        <Spinner fx:id="openMonth" layoutX="459.0" layoutY="12.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.topAnchor="12.0" />
-                        <Spinner fx:id="openYear" layoutX="553.0" layoutY="13.0" prefWidth="70.0" AnchorPane.topAnchor="12.0" />
-                        <Spinner fx:id="openMinute" layoutX="705.0" layoutY="13.0" prefWidth="50.0" AnchorPane.topAnchor="12.0" />
-                        <Spinner fx:id="openHour" layoutX="640.0" layoutY="13.0" prefWidth="50.0" AnchorPane.topAnchor="12.0" />
-                        <CheckBox layoutX="790.0" layoutY="7.0" mnemonicParsing="false" text="Enable" AnchorPane.topAnchor="12.0" />
-                        <Spinner fx:id="closeDay" layoutX="398.0" layoutY="56.0" prefWidth="50.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="57.0" />
-                        <Spinner fx:id="closeMonth" layoutX="459.0" layoutY="58.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.topAnchor="57.0" />
-                        <Spinner fx:id="closeYear" layoutX="553.0" layoutY="56.0" prefWidth="70.0" AnchorPane.topAnchor="57.0" />
-                        <Spinner fx:id="closeMinute" layoutX="705.0" layoutY="58.0" prefWidth="50.0" AnchorPane.topAnchor="57.0" />
-                        <Spinner fx:id="closeHour" layoutX="640.0" layoutY="58.0" prefWidth="50.0" AnchorPane.topAnchor="57.0" />
-                        <CheckBox layoutX="790.0" layoutY="56.0" mnemonicParsing="false" text="Enable" />
-                        <TextField fx:id="duration" layoutX="400.0" layoutY="103.0" prefWidth="50.0" promptText="0" />
-                        <Spinner fx:id="chooseUnit" layoutX="459.0" layoutY="103.0" prefHeight="25.0" prefWidth="85.0" />
-                        <CheckBox layoutX="555.0" layoutY="101.0" mnemonicParsing="false" text="Enable" />
-                        <Spinner fx:id="chooseAction" layoutX="400.0" layoutY="148.0" prefHeight="25.0" prefWidth="246.0" />
+                        <Spinner fx:id="openDay" layoutX="399.0" layoutY="12.0" prefWidth="50.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="12.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Spinner>
+                        <Spinner fx:id="openMonth" layoutX="459.0" layoutY="12.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.topAnchor="12.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Spinner>
+                        <Spinner fx:id="openYear" layoutX="553.0" layoutY="13.0" prefWidth="70.0" AnchorPane.topAnchor="12.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Spinner>
+                        <Spinner fx:id="openMinute" layoutX="705.0" layoutY="13.0" prefWidth="50.0" AnchorPane.topAnchor="12.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Spinner>
+                        <Spinner fx:id="openHour" layoutX="640.0" layoutY="13.0" prefWidth="50.0" AnchorPane.topAnchor="12.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Spinner>
+                        <CheckBox disable="true" layoutX="790.0" layoutY="7.0" mnemonicParsing="false" opacity="0.51" text="Enable" AnchorPane.topAnchor="12.0" />
+                        <Spinner fx:id="closeDay" layoutX="398.0" layoutY="56.0" prefWidth="50.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="57.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Spinner>
+                        <Spinner fx:id="closeMonth" layoutX="459.0" layoutY="58.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.topAnchor="57.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Spinner>
+                        <Spinner fx:id="closeYear" layoutX="553.0" layoutY="56.0" prefWidth="70.0" AnchorPane.topAnchor="57.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Spinner>
+                        <Spinner fx:id="closeMinute" layoutX="705.0" layoutY="58.0" prefWidth="50.0" AnchorPane.topAnchor="57.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Spinner>
+                        <Spinner fx:id="closeHour" layoutX="640.0" layoutY="58.0" prefWidth="50.0" AnchorPane.topAnchor="57.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Spinner>
+                        <CheckBox disable="true" layoutX="790.0" layoutY="56.0" mnemonicParsing="false" opacity="0.51" text="Enable" />
+                        <TextField fx:id="duration" disable="true" layoutX="400.0" layoutY="103.0" prefWidth="50.0" promptText="0" />
+                        <Spinner fx:id="chooseUnit" disable="true" layoutX="459.0" layoutY="103.0" opacity="0.81" prefHeight="25.0" prefWidth="85.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Spinner>
+                        <CheckBox fx:id="enable" layoutX="555.0" layoutY="101.0" mnemonicParsing="false" onAction="#enableDuration" text="Enable">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></CheckBox>
+                        <Spinner fx:id="chooseAction" layoutX="400.0" layoutY="148.0" prefHeight="25.0" prefWidth="246.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Spinner>
                         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="380.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="105.0">
                            <image>
                               <Image url="@../../../assets/question-mark.png" />

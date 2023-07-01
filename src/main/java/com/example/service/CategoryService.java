@@ -48,4 +48,20 @@ public class CategoryService {
         }
         return results;
     }
+
+    public List<Category> getSubCategories(Category parent) throws SQLException {
+        List<Category> results = new ArrayList<>();
+        try (Connection conn = JdbcUtils.getConn()) {
+            PreparedStatement stm = conn.prepareStatement("SELECT * FROM category WHERE parent_id = ?");
+            stm.setString(1, parent.getCatId());
+            ResultSet rs = stm.executeQuery();
+
+            while (rs.next()) {
+                Category c = new Category(rs.getString("cat_id"), rs.getString("parent_id"), rs.getString("name"),
+                        rs.getString("info"), rs.getInt("level"), rs.getInt("ques_quant"), rs.getInt("ques"));
+                results.add(c);
+            }
+        }
+        return results;
+    }
 }

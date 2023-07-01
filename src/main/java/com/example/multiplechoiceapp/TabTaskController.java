@@ -38,6 +38,7 @@ public class TabTaskController implements Initializable {
     @FXML private Tab importTab;
     @FXML private Tab exportTab;
     @FXML private ComboBox<Category> cbCategories;
+    @FXML private CheckBox showSubCat;
     @FXML private ComboBox<Category> cbCategories1;
     @FXML private TextField catName;
     @FXML private TextArea catInfo;
@@ -52,8 +53,14 @@ public class TabTaskController implements Initializable {
             this.cbCategories.getSelectionModel().selectedItemProperty().addListener((evt) -> {
                 List<Question> questions = new ArrayList<>();
                 try {
-                    questions = qs.getQuestions(this.cbCategories.getSelectionModel().getSelectedItem());
-//                    System.out.println(questions);
+                    Category sel = this.cbCategories.getSelectionModel().getSelectedItem();
+                    questions = qs.getQuestions(sel);
+                    if (showSubCat.isSelected()) {
+                            List<Category> categories = s.getSubCategories(sel);
+                            for (Category c : categories) {
+                                questions.addAll(qs.getQuestions(c));
+                            }
+                    }
                     this.showQuestions(questions);
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -105,15 +112,17 @@ public class TabTaskController implements Initializable {
         AnchorPane.setLeftAnchor(qLbl, 15.0);
         AnchorPane.setTopAnchor(aLbl, 7.0);
         AnchorPane.setRightAnchor(aLbl, 10.0);
-//        while(!questionVBox.getChildren().get(6).equals(null)) questionVBox.getChildren().remove(6);
+        if (questionVBox.getChildren().size()>6) {
+            questionVBox.getChildren().remove(6, questionVBox.getChildren().size());
+        }
         questionVBox.getChildren().add(title);
         VBox.setMargin(title, new Insets(30, 20, 0 ,25));
         for (Question q : questions) {
             quantity++;
-            Label quesTxt = new Label(q.getQuesName()+" "+q.getQuesText());
+            Label quesTxt = new Label(q.getQuesId()+": "+q.getQuesName()+": "+q.getQuesText());
             quesTxt.setMaxWidth(1000);
             Button editButt = new Button("Edit");
-            editButt.setStyle("-fx-background-color: none; -fx-text-fill: #0984e3;");
+            editButt.setStyle("-fx-background-color: none; -fx-text-fill: #0984e3; -fx-cursor: HAND");
             editButt.setOnAction((evt) -> {
                 //Open add-ques but in edit mode
             });
