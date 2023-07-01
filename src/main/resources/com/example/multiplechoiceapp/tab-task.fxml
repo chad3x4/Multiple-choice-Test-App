@@ -8,12 +8,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -21,7 +19,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -126,7 +126,7 @@
             <tabs>
                 <Tab fx:id="questionTab">
                     <content>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox fx:id="questionVBox" prefHeight="200.0" prefWidth="100.0">
                             <children>
                                 <Label prefHeight="72.0" prefWidth="184.0" style="-fx-alignment: center;" text="Question bank" textFill="#c23616">
                                     <font>
@@ -193,35 +193,6 @@
                               <Font size="16.0" />
                            </font>
                                 </Button>
-                        <AnchorPane prefHeight="10.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Questions" AnchorPane.leftAnchor="0.0">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Edit" AnchorPane.rightAnchor="80.0">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets left="25.0" top="10.0" />
-                           </VBox.margin>
-                        </AnchorPane>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <TreeView layoutX="56.0" layoutY="6.0" prefHeight="200.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                                 </children>
-                              </AnchorPane>
-                          </content>
-                           <VBox.margin>
-                              <Insets left="5.0" />
-                           </VBox.margin>
-                        </ScrollPane>
                             </children>
                      <padding>
                         <Insets left="10.0" />
@@ -349,9 +320,9 @@
                         </Label>
                         <AnchorPane prefHeight="39.0" prefWidth="555.0">
                            <children>
-                              <Label contentDisplay="RIGHT" prefHeight="25.0" prefWidth="118.0" text="File format" AnchorPane.leftAnchor="25.0">
+                              <Label contentDisplay="RIGHT" prefHeight="25.0" prefWidth="118.0" text="File format" textFill="#da0d0d" AnchorPane.leftAnchor="25.0">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font size="20.0" />
                                  </font>
                               </Label>
                               <Text layoutX="442.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aiken Format" AnchorPane.leftAnchor="400.0">
@@ -363,9 +334,9 @@
                         </AnchorPane>
                         <AnchorPane layoutX="20.0" layoutY="82.0" prefHeight="37.0" prefWidth="595.0">
                            <children>
-                              <Label contentDisplay="RIGHT" prefHeight="25.0" prefWidth="118.0" text="General" AnchorPane.leftAnchor="25.0">
+                              <Label contentDisplay="RIGHT" prefHeight="25.0" prefWidth="118.0" text="General" textFill="#da0d0d" AnchorPane.leftAnchor="25.0">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font size="20.0" />
                                  </font>
                               </Label>
                            </children>
@@ -380,7 +351,40 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextArea layoutX="348.0" layoutY="1.0" prefHeight="100.0" prefWidth="350.0" AnchorPane.leftAnchor="400.0" />
+                              <VBox prefHeight="200.0" prefWidth="600.0" AnchorPane.leftAnchor="400.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" style="-fx-background-color: #0984e3;" text="CHOOSE A FILE..." textFill="WHITE">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Button>
+                                    <StackPane prefHeight="155.0" prefWidth="600.0" style="-fx-border-color: #000000;">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="125.0" stroke="BLACK" strokeLineCap="BUTT" strokeType="INSIDE" width="570.0" />
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../assets/drop-file.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You can drag and drop files here to add them">
+                                                   <VBox.margin>
+                                                      <Insets top="25.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </VBox>
                            </children>
                            <VBox.margin>
                               <Insets top="20.0" />

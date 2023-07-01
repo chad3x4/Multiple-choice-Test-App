@@ -7,6 +7,7 @@ import com.example.pojo.Question;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +44,19 @@ public class QuestionService {
     }
 
     //*Get all questions have category c
-    public List<Question> getQuestions(Category c) {
+    public List<Question> getQuestions(Category c) throws SQLException{
         List<Question> results = new ArrayList<>();
+
+        try (Connection conn = JdbcUtils.getConn()) {
+            PreparedStatement stm = conn.prepareStatement("SELECT * FROM question WHERE cat_id = ?");
+            stm.setString(1, c.getCatId());
+
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Question q = new Question(rs.getString("ques_id"), rs.getString("cat_id"), rs.getString("ques_name"), rs.getString("ques_text"), rs.getString("img_link"));
+                results.add(q);
+            }
+        }
         return results;
     }
 }

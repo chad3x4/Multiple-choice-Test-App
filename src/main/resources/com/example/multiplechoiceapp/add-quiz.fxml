@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -20,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="rootPane" prefHeight="581.0" prefWidth="565.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.multiplechoiceapp.AddQuizController">
+<VBox fx:id="rootPane" prefHeight="750.0" prefWidth="1000.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.multiplechoiceapp.AddQuizController">
     <children>
         <HBox prefHeight="5.0" prefWidth="565.0" style="-fx-background-color: #0984e3;">
             <children>
@@ -81,7 +82,7 @@
                     </font>
                 </MenuButton>
                 <HBox GridPane.rowIndex="1">
-                    <Hyperlink text="Home" textFill="#da0d0d">
+                    <Hyperlink onAction="#goHomePage" text="Home" textFill="#da0d0d">
                         <font>
                             <Font size="16.0" />
                         </font></Hyperlink><Label prefHeight="23.0" prefWidth="2.0" text="/">
@@ -91,7 +92,7 @@
                     <font>
                         <Font size="16.0" />
                     </font></Label>
-                    <Hyperlink text="My Course" textFill="#da0d0d">
+                    <Hyperlink onAction="#goHomePage" text="My Course" textFill="#da0d0d">
                         <font>
                             <Font size="16.0" />
                         </font></Hyperlink>
@@ -102,7 +103,7 @@
                         <padding>
                             <Insets top="2.0" />
                         </padding></Label>
-                    <Hyperlink text="THI CUỐI KỲ" textFill="#da0d0d">
+                    <Hyperlink onAction="#goHomePage" text="THI CUỐI KỲ" textFill="#da0d0d">
                         <font>
                             <Font size="16.0" />
                         </font></Hyperlink>
@@ -125,136 +126,151 @@
                 </HBox>
             </children>
         </GridPane>
-        <VBox prefHeight="510.0" prefWidth="600.0" style="-fx-border-insets: 5; -fx-border-color: #b2bec3;">
-         <children>
-            <Label text="Adding a new quiz" textFill="#da0d0d">
-               <graphic>
-                  <ImageView fitHeight="19.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../assets/quiz-moodle.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="22.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="30.0" top="25.0" />
-               </VBox.margin>
-            </Label>
-            <Label text="General" textFill="#da0d0d">
-               <VBox.margin>
-                  <Insets left="32.0" top="25.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <AnchorPane prefHeight="151.0" prefWidth="900.0">
+      <ScrollPane prefHeight="510.0" style="-fx-border-color: #b2bec3; -fx-background-insets: 5;">
+         <content>
+            <AnchorPane>
                <children>
-                  <Label layoutX="94.0" layoutY="39.0" text="Name" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="20.0">
+                  <Label text="Adding a new quiz" textFill="#da0d0d" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/quiz-moodle.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <font>
-                        <Font size="14.0" />
+                        <Font size="22.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="216.0" layoutY="5.0" prefWidth="500.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="20.0" />
-                  <Label layoutX="40.0" layoutY="94.0" text="Description" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="64.0">
+                  <Label text="General" textFill="#da0d0d" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="70.0">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextArea layoutX="400.0" layoutY="64.0" prefHeight="60.0" prefWidth="500.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="64.0" />
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="364.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="365.0" AnchorPane.topAnchor="20.0">
-                     <image>
-                        <Image url="@../../../assets/info-circle.png" />
-                     </image>
-                  </ImageView>
-                  <CheckBox layoutX="400.0" layoutY="169.0" mnemonicParsing="false" text="Display description on course page" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0">
+                  <AnchorPane prefHeight="151.0" prefWidth="900.0" AnchorPane.topAnchor="100.0">
+                     <children>
+                        <Label layoutX="94.0" layoutY="39.0" text="Name" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="216.0" layoutY="5.0" prefWidth="500.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="20.0" />
+                        <Label layoutX="40.0" layoutY="94.0" text="Description" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="64.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea layoutX="400.0" layoutY="64.0" prefHeight="60.0" prefWidth="500.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="64.0" />
+                        <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="364.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="365.0" AnchorPane.topAnchor="20.0">
+                           <image>
+                              <Image url="@../../../assets/info-circle.png" />
+                           </image>
+                        </ImageView>
+                        <CheckBox layoutX="400.0" layoutY="169.0" mnemonicParsing="false" text="Display description on course page" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </CheckBox>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="593.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="628.0">
+                           <image>
+                              <Image url="@../../../assets/question-mark.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Label text="Timing" textFill="#da0d0d" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="280.0">
                      <font>
-                        <Font size="13.0" />
+                        <Font size="16.0" />
                      </font>
-                  </CheckBox>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="593.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="628.0">
-                     <image>
-                        <Image url="@../../../assets/question-mark.png" />
-                     </image>
-                  </ImageView>
+                  </Label>
+                  <AnchorPane prefHeight="150.0" prefWidth="900.0" AnchorPane.topAnchor="330.0">
+                     <children>
+                        <Label layoutX="94.0" layoutY="39.0" text="Open the quiz" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="15.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="40.0" layoutY="94.0" text="Close the quiz" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="60.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="364.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="15.0">
+                           <image>
+                              <Image url="@../../../assets/question-mark.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="50.0" layoutY="74.0" text="Time limit" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="105.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="391.0" layoutY="94.0" text="When time expires" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="150.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Spinner fx:id="openDay" layoutX="399.0" layoutY="12.0" prefWidth="50.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="12.0" />
+                        <Spinner fx:id="openMonth" layoutX="459.0" layoutY="12.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.topAnchor="12.0" />
+                        <Spinner fx:id="openYear" layoutX="553.0" layoutY="13.0" prefWidth="70.0" AnchorPane.topAnchor="12.0" />
+                        <Spinner fx:id="openMinute" layoutX="705.0" layoutY="13.0" prefWidth="50.0" AnchorPane.topAnchor="12.0" />
+                        <Spinner fx:id="openHour" layoutX="640.0" layoutY="13.0" prefWidth="50.0" AnchorPane.topAnchor="12.0" />
+                        <CheckBox layoutX="790.0" layoutY="7.0" mnemonicParsing="false" text="Enable" AnchorPane.topAnchor="12.0" />
+                        <Spinner fx:id="closeDay" layoutX="398.0" layoutY="56.0" prefWidth="50.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="57.0" />
+                        <Spinner fx:id="closeMonth" layoutX="459.0" layoutY="58.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.topAnchor="57.0" />
+                        <Spinner fx:id="closeYear" layoutX="553.0" layoutY="56.0" prefWidth="70.0" AnchorPane.topAnchor="57.0" />
+                        <Spinner fx:id="closeMinute" layoutX="705.0" layoutY="58.0" prefWidth="50.0" AnchorPane.topAnchor="57.0" />
+                        <Spinner fx:id="closeHour" layoutX="640.0" layoutY="58.0" prefWidth="50.0" AnchorPane.topAnchor="57.0" />
+                        <CheckBox layoutX="790.0" layoutY="56.0" mnemonicParsing="false" text="Enable" />
+                        <TextField fx:id="duration" layoutX="400.0" layoutY="103.0" prefWidth="50.0" promptText="0" />
+                        <Spinner fx:id="chooseUnit" layoutX="459.0" layoutY="103.0" prefHeight="25.0" prefWidth="85.0" />
+                        <CheckBox layoutX="555.0" layoutY="101.0" mnemonicParsing="false" text="Enable" />
+                        <Spinner fx:id="chooseAction" layoutX="400.0" layoutY="148.0" prefHeight="25.0" prefWidth="246.0" />
+                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="380.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="105.0">
+                           <image>
+                              <Image url="@../../../assets/question-mark.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="380.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="150.0">
+                           <image>
+                              <Image url="@../../../assets/question-mark.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="770.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/calendar.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="770.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/calendar.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <HBox prefHeight="18.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="550.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#createQuizHandler" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #0984e3;" text="Create" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#goHomePage" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #c23616;" text="Cancel" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
+               <padding>
+                  <Insets bottom="40.0" />
+               </padding>
             </AnchorPane>
-            <Label layoutX="16.0" layoutY="73.0" text="Timing" textFill="#da0d0d">
-               <VBox.margin>
-                  <Insets left="32.0" top="15.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <AnchorPane layoutX="16.0" layoutY="123.0" prefHeight="150.0" prefWidth="900.0">
-               <children>
-                  <Label layoutX="94.0" layoutY="39.0" text="Open the quiz" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="15.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="40.0" layoutY="94.0" text="Close the quiz" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="60.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="364.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="15.0">
-                     <image>
-                        <Image url="@../../../assets/question-mark.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="50.0" layoutY="74.0" text="Time limit" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="105.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="391.0" layoutY="94.0" text="When time expires" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="150.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Spinner layoutX="399.0" layoutY="12.0" prefWidth="50.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="12.0" />
-                  <Spinner layoutX="459.0" layoutY="12.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.topAnchor="12.0" />
-                  <Spinner layoutX="553.0" layoutY="13.0" prefWidth="50.0" AnchorPane.topAnchor="12.0" />
-                  <Spinner layoutX="677.0" layoutY="13.0" prefWidth="50.0" />
-                  <Spinner layoutX="613.0" layoutY="13.0" prefWidth="50.0" />
-                  <CheckBox layoutX="754.0" layoutY="7.0" mnemonicParsing="false" text="Enable" AnchorPane.topAnchor="12.0" />
-                  <Spinner layoutX="398.0" layoutY="56.0" prefWidth="50.0" AnchorPane.leftAnchor="400.0" />
-                  <Spinner layoutX="459.0" layoutY="58.0" prefHeight="25.0" prefWidth="79.0" />
-                  <Spinner layoutX="553.0" layoutY="56.0" prefWidth="50.0" />
-                  <Spinner layoutX="677.0" layoutY="58.0" prefWidth="50.0" />
-                  <Spinner layoutX="613.0" layoutY="58.0" prefWidth="50.0" />
-                  <CheckBox layoutX="754.0" layoutY="56.0" mnemonicParsing="false" text="Enable" />
-                  <TextField layoutX="400.0" layoutY="103.0" prefWidth="50.0" />
-                  <Spinner layoutX="459.0" layoutY="103.0" prefHeight="25.0" prefWidth="61.0" />
-                  <CheckBox layoutX="532.0" layoutY="101.0" mnemonicParsing="false" text="Enable" />
-                  <Spinner layoutX="400.0" layoutY="148.0" prefHeight="25.0" prefWidth="246.0" />
-                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="380.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="105.0">
-                     <image>
-                        <Image url="@../../../assets/question-mark.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="380.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="150.0">
-                     <image>
-                        <Image url="@../../../assets/question-mark.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="734.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../assets/calendar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="734.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../assets/calendar.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-         </children>
-        </VBox>
+         </content>
+      </ScrollPane>
     </children>
 </VBox>

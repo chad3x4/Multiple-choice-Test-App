@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="rootPane" prefHeight="750.0" prefWidth="1300.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.multiplechoiceapp.EditQuizController">
+    <children>
+        <HBox prefHeight="5.0" prefWidth="565.0" style="-fx-background-color: #0984e3;">
+            <children>
+                <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="5.0" prefWidth="10.0" style="-fx-background-color: none;" text="≡" textFill="WHITE">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+        <GridPane prefHeight="160.0" prefWidth="600.0" style="-fx-border-color: #b2bec3; -fx-border-insets: 5;">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="IT" textFill="#c23616">
+                    <font>
+                        <Font name="System Bold" size="45.0" />
+                    </font>
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                    <GridPane.margin>
+                        <Insets left="10.0" top="5.0" />
+                    </GridPane.margin>
+                </Label>
+                <MenuButton alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="56.0" prefWidth="44.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../assets/setting.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <items>
+                        <MenuItem mnemonicParsing="false" style="-fx-font-size: 16;" text="Question" />
+                        <MenuItem mnemonicParsing="false" style="-fx-font-size: 16;" text="Categories" />
+                        <MenuItem mnemonicParsing="false" style="-fx-font-size: 16;" text="Import" />
+                        <MenuItem mnemonicParsing="false" style="-fx-font-size: 16;" text="Export" />
+                    </items>
+                    <GridPane.margin>
+                        <Insets bottom="5.0" right="15.0" />
+                    </GridPane.margin>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </MenuButton>
+                <HBox GridPane.rowIndex="1">
+                    <Hyperlink onAction="#goHomePage" text="Home" textFill="#da0d0d">
+                        <font>
+                            <Font size="16.0" />
+                        </font></Hyperlink><Label prefHeight="23.0" prefWidth="2.0" text="/">
+                    <padding>
+                        <Insets top="2.0" />
+                    </padding>
+                    <font>
+                        <Font size="16.0" />
+                    </font></Label>
+                    <Hyperlink onAction="#goHomePage" text="My Course" textFill="#da0d0d">
+                        <font>
+                            <Font size="16.0" />
+                        </font></Hyperlink>
+                    <Label layoutX="51.0" layoutY="10.0" prefHeight="23.0" prefWidth="2.0" text="/">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                        <padding>
+                            <Insets top="2.0" />
+                        </padding></Label>
+                    <Hyperlink onAction="#goHomePage" text="THI CUỐI KỲ" textFill="#da0d0d">
+                        <font>
+                            <Font size="16.0" />
+                        </font></Hyperlink>
+                    <Label layoutX="156.0" layoutY="10.0" prefHeight="23.0" prefWidth="2.0" text="/">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                        <padding>
+                            <Insets top="2.0" />
+                        </padding>
+                    </Label>
+                    <Hyperlink layoutX="163.0" layoutY="10.0" text="General" textFill="#da0d0d">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Hyperlink>
+                    <Label layoutX="262.0" layoutY="10.0" prefHeight="23.0" prefWidth="2.0" text="/">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                        <padding>
+                            <Insets top="2.0" />
+                        </padding>
+                    </Label>
+                    <Hyperlink layoutX="269.0" layoutY="10.0" text="Quiz Name" textFill="#da0d0d">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Hyperlink>
+               <Label layoutX="334.0" layoutY="10.0" prefHeight="23.0" prefWidth="2.0" text="/">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+                  <padding>
+                     <Insets top="2.0" />
+                  </padding>
+               </Label>
+               <Hyperlink layoutX="341.0" layoutY="10.0" text="Edit Quiz" textFill="#da0d0d">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </Hyperlink>
+                    <GridPane.margin>
+                        <Insets left="15.0" top="15.0" />
+                    </GridPane.margin>
+                </HBox>
+            </children>
+        </GridPane>
+        <ScrollPane prefHeight="510.0" style="-fx-border-color: #b2bec3; -fx-background-insets: 5;">
+            <content>
+                <AnchorPane prefHeight="625.0" prefWidth="1300.0">
+                    <children>
+                        <Label text="Editing Quiz: Quiz Name" textFill="#da0d0d" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0">
+                            <font>
+                                <Font size="22.0" />
+                            </font>
+                        </Label>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Questions: 0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="65.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" | This quiz is open" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="65.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Maximum Grade" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="65.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <TextField prefHeight="35.0" prefWidth="51.0" text="10.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="58.0" />
+                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" style="-fx-background-color: #0984e3;" text="SAVE" textFill="WHITE" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="58.0">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Button>
+                  <Button layoutX="1229.0" layoutY="68.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="126.0" style="-fx-background-color: #0984e3;" text="REPAGINATE" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="100.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="40.0" layoutY="110.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #0984e3;" text="SELECT MULTIPLE ITEMS" textFill="WHITE" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="100.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="40.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total marks:" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="108.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <CheckBox layoutX="1161.0" layoutY="135.0" mnemonicParsing="false" text="Shuffle" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="135.0" />
+                  <Text fill="#da0d0d" layoutX="30.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Page 1" AnchorPane.topAnchor="178.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <MenuButton layoutX="582.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: #ffffff;" text="Add" textFill="#0984e3" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="175.0">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="a new question" />
+                      <MenuItem mnemonicParsing="false" text="from question bank" />
+                    </items>
+                  </MenuButton>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+</VBox>

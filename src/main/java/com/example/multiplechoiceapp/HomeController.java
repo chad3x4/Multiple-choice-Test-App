@@ -6,9 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.SingleSelectionModel;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -41,6 +40,27 @@ public class HomeController implements Initializable {
     public void openAddQuiz() throws IOException {
         FXMLLoader fxmlLoader3 = new FXMLLoader(getClass().getResource("add-quiz.fxml"));
         rootPane.getScene().setRoot(fxmlLoader3.load());
+    }
+
+    public void openPrepareQuiz(ActionEvent e) {
+        FXMLLoader fxmlLoader4 = new FXMLLoader(getClass().getResource("prepare-quiz.fxml"));
+        VBox prepareRoot = null;
+        try {
+            prepareRoot = (VBox) fxmlLoader4.load();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        Hyperlink choose = (Hyperlink) e.getSource();
+        String quizName = choose.getText();
+        HBox pathPane1 = (HBox)prepareRoot.lookup("GridPane").lookup("HBox");
+        Hyperlink quizPath = (Hyperlink) pathPane1.getChildren().get(8);
+        quizPath.setText(quizName);
+
+        ScrollPane scrollPane = (ScrollPane)prepareRoot.lookup("ScrollPane");
+        AnchorPane anchorPane = (AnchorPane)scrollPane.getContent();
+        Label quizLabel = (Label)anchorPane.lookup("Label");
+        quizLabel.setText(quizName);
+        rootPane.getScene().setRoot(prepareRoot);
     }
 
     public void openQuestionTab(ActionEvent e) {
