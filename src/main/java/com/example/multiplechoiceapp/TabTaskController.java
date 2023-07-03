@@ -180,7 +180,6 @@ public class TabTaskController implements Initializable {
     }
     public void browseFile() {
         this.file = fileChooser.showOpenDialog(new Stage());
-        System.out.println(this.file.isFile());
         fileName.setText(this.file.getName());
     }
 
@@ -193,36 +192,178 @@ public class TabTaskController implements Initializable {
         else return false;
     }
 
-    public static boolean isChoice(String content) {
-        return content.substring(1, 3).equals(". ");
-    }
-
     public void importFileHandler(ActionEvent e) throws FileNotFoundException {
-        System.out.println(file);
-        System.out.println(fileName.getText());
-        System.out.println(checkFileExtension(fileName.getText()));
-        List<Question> questions = new ArrayList<>();
-
-//        Scanner scan = new Scanner(file);
-//
-//        while(scan.hasNextLine()) {
-//            String content = scan.nextLine();
-//            if (content.equals("\n")) ;
-//            else {
-//                String quesName;
-//                String choiceContent;
-//                if (isChoice(content)) choiceContent = content;
-//                else quesName = content;
-//            }
-//        }
         if (file != null) {
-            if(checkFileExtension(fileName.getText())) {
-                System.out.println("The file has true format!");
-            } else Noti.getBox("The file has wrong format!", Alert.AlertType.WARNING).show();
+            if (checkFileExtension(fileName.getText())) {
+                if (checkAikenFormat(file)==0) {
+                    Scanner scanner = new Scanner(file);
+
+                    System.out.println("Success: " + getQuestionCount(file));
+                    showAlert(Alert.AlertType.INFORMATION, "Success", "OK");
+                } else {
+                    int rowNumber = checkAikenFormat(file);
+                    System.out.println("Error at: " + rowNumber);
+                    String errorMessage = "The first non-Aiken formatted row is at line " + rowNumber;
+                    showAlert(Alert.AlertType.ERROR, "Aiken Format Error", errorMessage);
+                }
+            } else {
+                showAlert(Alert.AlertType.WARNING, "File Format Error", "Wrong Format");
+            }
         } else {
-            Noti.getBox("You have to choose a file to import!", Alert.AlertType.WARNING).show();
+            showAlert(Alert.AlertType.WARNING, "No File Selected", "You have to choose a file to import!");
         }
     }
+
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    public static int checkAikenFormat(File file) throws FileNotFoundException {
+        Scanner scanner = new Scanner(file);
+
+        int QuestionState = -1; // -1: no question
+        int lineCount = 0;
+        List<Character> choicesList = new ArrayList<>();
+
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine().trim();
+            lineCount++;
+
+            if (line.isEmpty()) {
+                if (QuestionState == 3) { // 3: end of question (after correct answer)
+                    QuestionState = -1;
+                } else if (QuestionState == -1) { // -1: no question
+                    continue;
+                } else {
+                    System.out.println("Error at line " + lineCount + ": Empty line in question");
+                    scanner.close();
+                    return lineCount;
+                }
+            } else {
+                if (QuestionState == -1){ // -1: no question
+                    if (isTitle(line)) {
+                        QuestionState = 0;
+                    } else {
+                        System.out.println("Error at line " + lineCount + ": No title");
+                        scanner.close();
+                        return lineCount;
+                    }
+                } else if (QuestionState == 0) { // 0: just have title
+                    if (isAnswer(line)) {
+                        char choice = line.charAt(0);
+                        if (choicesList.contains(choice)) {
+                            System.out.println("Error at line " + lineCount + ": Duplicate choice");
+                            scanner.close();
+                            return lineCount;
+                        } else {
+                            choicesList.add(choice);
+                            QuestionState = 1;
+                        }
+                    } else {
+                        System.out.println("Error at line " + lineCount + ": No answer");
+                        scanner.close();
+                        return lineCount;
+                    }
+                } else if (QuestionState == 1) { // 1: just have 1 answer
+                    if (isAnswer(line)) {
+                        char choice = line.charAt(0);
+                        if (choicesList.contains(choice)) {
+                            System.out.println("Error at line " + lineCount + ": Duplicate choice");
+                            scanner.close();
+                            return lineCount;
+                        } else {
+                            choicesList.add(choice);
+                            QuestionState = 2;
+                        }
+                    } else {
+                        System.out.println("Error at line " + lineCount + ": No correct answer");
+                        scanner.close();
+                        return lineCount;
+                    }
+                } else if (QuestionState == 2) { // 2: have 2 or more than 2 answers
+                    if (isCorrectAnswer(line, choicesList)) {
+                        QuestionState = 3;
+                        choicesList.clear();
+                    } else if (isAnswer(line)) {
+                        char choice = line.charAt(0);
+                        if (choicesList.contains(choice)) {
+                            System.out.println("Error at line " + lineCount + ": Duplicate choice");
+                            scanner.close();
+                            return lineCount;
+                        } else {
+                            choicesList.add(choice);
+                        }
+                    } else {
+                        System.out.println("Error at line " + lineCount + ": No correct answer");
+                        scanner.close();
+                        return lineCount;
+                    }
+                } else if (QuestionState == 3) {
+                    System.out.println("Error at line " + lineCount + ": Question ended but still have content");
+                    scanner.close();
+                    return lineCount;
+                }
+            }
+        }
+        scanner.close();
+        if (QuestionState == -1|| QuestionState == 3) {
+            return 0;
+        } else {
+            System.out.println("Error at line " + lineCount + ": Incomplete question");
+            return lineCount;
+        }
+    }
+
+    private static boolean isTitle(String line) {
+        // Check if the line starts with a letter or number followed by a period and space
+        boolean isCorrectAnswerFormat = line.matches("^ANSWER: [A-Z]$");
+        if (!isCorrectAnswerFormat) {
+            return !isAnswer(line);
+        }
+        return false;
+    }
+
+    private static boolean isAnswer(String line) {
+        // Check if the line starts with a letter followed by a period and space
+        return line.matches("^[A-Z]\\..*");
+    }
+
+    private static boolean isCorrectAnswer(String line, List<Character> choicesList) {
+        // Check if the line starts with "ANSWER: " followed by a single uppercase letter
+        boolean isCorrectFormat = line.matches("^ANSWER: [A-Z]$");
+
+        if (isCorrectFormat) {
+            char correctAnswer = line.charAt(8); // Extract the correct answer (uppercase letter) from the line
+            return choicesList.contains(correctAnswer);
+        }
+
+        return false;
+    }
+
+    private static boolean isCorrectAnswerFormat(String line) {
+        // Check if the line starts with "ANSWER: " followed by a single uppercase letter
+        return line.matches("^ANSWER: [A-Z]$");
+    }
+
+
+    private int getQuestionCount(File file) throws FileNotFoundException {
+        Scanner scanner = new Scanner(file);
+        int count = 0;
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine().trim();
+            if (isCorrectAnswerFormat(line)) {
+                count++;
+            }
+        }
+        scanner.close();
+        return count;
+    }
+
+
     public void goHomePage(ActionEvent e) throws IOException {
         rootPane.getScene().setRoot(new FXMLLoader(App.class.getResource("home-view.fxml")).load());
     }

@@ -164,12 +164,12 @@
                                 <Font size="22.0" />
                             </font>
                         </Label>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Questions: 0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="65.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Questions:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="65.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" | This quiz is open" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="65.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" | This quiz is open" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="65.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -214,7 +214,7 @@
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <CheckBox layoutX="1161.0" layoutY="135.0" mnemonicParsing="false" text="Shuffle" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="135.0">
+                  <CheckBox fx:id="shuffle" layoutX="1161.0" layoutY="135.0" mnemonicParsing="false" text="Shuffle" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="135.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></CheckBox>
@@ -244,6 +244,11 @@
                      </cursor>
                   </MenuButton>
                   <VBox fx:id="questionVBox" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0" />
+                  <Text fx:id="totalQuestion" layoutX="133.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="65.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
                     </children>
                 </AnchorPane>
             </content>

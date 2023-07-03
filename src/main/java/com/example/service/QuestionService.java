@@ -126,4 +126,14 @@ public class QuestionService {
         }
         return results;
     }
+
+    public boolean isMultipleAnswers(String quesId) throws SQLException {
+        ChoiceService cs = new ChoiceService();
+        List<Choice> choices = cs.getChoices(quesId);
+        for (Choice c: choices) {
+            if(c.getScore() == 100) return false;
+            if(c.getScore()>0) return true;
+        }
+        return false;
+    }
 }

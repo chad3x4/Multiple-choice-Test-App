@@ -170,10 +170,11 @@
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                  <TableView layoutX="32.0" layoutY="189.0" prefHeight="200.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="0.0">
+                  <TableView fx:id="attemptLog" layoutX="32.0" layoutY="189.0" prefHeight="200.0" prefWidth="1185.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="0.0">
                     <columns>
-                      <TableColumn minWidth="770.0" prefWidth="-1.0" sortable="false" style="-fx-background-color: #0984e3; -fx-text-fill: #ffffff;" text="Attempt" />
-                      <TableColumn minWidth="500.0" prefWidth="-1.0" sortable="false" style="-fx-background-color: #0984e3;" text="State" />
+                      <TableColumn fx:id="attempt" minWidth="42.0" prefWidth="500.0" sortable="false" text="Attempt" />
+                      <TableColumn fx:id="state" minWidth="14.0" prefWidth="500.0" sortable="false" text="State" />
+                        <TableColumn fx:id="score" minWidth="200.0" prefWidth="300.0" sortable="false" text="Score" />
                     </columns>
                   </TableView>
                           <Button mnemonicParsing="false" onAction="#previewQuizHandler" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #0984e3;" text="Preview Quiz Now" textFill="WHITE" AnchorPane.leftAnchor="565.0" AnchorPane.rightAnchor="535.0" AnchorPane.topAnchor="420.0">

@@ -29,8 +29,10 @@ public class EditQuizController implements Initializable {
     @FXML private VBox rootPane;
     @FXML private Hyperlink quizNamePath;
     @FXML private Label quizLbl;
+    @FXML private Text totalQuestion;
     @FXML private Text totalMark;
     @FXML private VBox questionVBox;
+    @FXML private CheckBox shuffle;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<Question> questions = new ArrayList<>();
@@ -46,12 +48,14 @@ public class EditQuizController implements Initializable {
             e.printStackTrace();
         }
         totalMark.setText(questions.size()+"");
+        totalQuestion.setText(questions.size()+"");
         showQuestions(questions);
     }
 
     public void saveChange() throws IOException {
         AttemptingQuizSingleton instance = AttemptingQuizSingleton.getInstance();
         Quiz q = instance.getAttemptingQuiz();
+        instance.setShuffle(shuffle.isSelected());
         QuizService qs = new QuizService();
         questionVBox.getChildren().remove(0);
         for (Node pane : questionVBox.getChildren()) {
@@ -106,6 +110,7 @@ public class EditQuizController implements Initializable {
                     questionVBox.getChildren().remove(deleteIcon.getParent());
                     int totalNew = Integer.parseInt(totalMark.getText());
                     totalMark.setText((--totalNew)+"");
+                    totalQuestion.setText((totalNew)+"");
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }

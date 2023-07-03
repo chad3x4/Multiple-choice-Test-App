@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="217.0" prefWidth="895.0" style="-fx-border-color: #b2bec3; -fx-border-insets: 2; -fx-background-color: #ecf0f1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.multiplechoiceapp.ScoreBoardController">
+   <children>
+      <VBox alignment="CENTER_RIGHT" prefHeight="211.0" prefWidth="434.0">
+         <children>
+            <Label text="Started on" textFill="#c23616">
+               <VBox.margin>
+                  <Insets bottom="5.0" right="6.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="State" textFill="#c23616">
+               <VBox.margin>
+                  <Insets bottom="5.0" right="6.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Completed on" textFill="#c23616">
+               <VBox.margin>
+                  <Insets bottom="5.0" right="6.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Time taken" textFill="#c23616">
+               <VBox.margin>
+                  <Insets bottom="5.0" right="6.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Marks" textFill="#c23616">
+               <VBox.margin>
+                  <Insets bottom="5.0" right="6.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Grade" textFill="#c23616">
+               <VBox.margin>
+                  <Insets bottom="5.0" right="6.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="211.0" prefWidth="470.0">
+         <children>
+            <Label fx:id="dateStart" text="Label">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="6.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Finished">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="6.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateComplete" text="Label">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="6.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="duration" text="Label">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="6.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="mark" text="Label">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="6.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="grade" text="0.0 out of 10.0 (0%)">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="6.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</HBox>

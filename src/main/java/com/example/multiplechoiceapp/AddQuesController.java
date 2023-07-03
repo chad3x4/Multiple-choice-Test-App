@@ -167,7 +167,7 @@ public class AddQuesController implements Initializable {
     }
 
     public void addQuestionHandler() {
-        this.saveQuestion();
+//        this.saveQuestion();
 
         List<Object> p = PathModifier.addPath("Question");
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("tab-task.fxml"));
