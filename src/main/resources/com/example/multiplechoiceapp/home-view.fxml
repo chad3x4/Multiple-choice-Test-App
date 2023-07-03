@@ -126,83 +126,9 @@
       <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-insets: 0;">
          <content>
               <VBox fx:id="testList" prefHeight="510.0" style="-fx-border-insets: 5; -fx-border-color: #b2bec3;">
-                  <children>
-                      <Hyperlink onAction="#openPrepareQuiz" text="Kiểm tra cuối kỳ môn IT4895Q">
-                          <graphic>
-                              <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                                  <image>
-                                      <Image url="@../../../assets/quiz-moodle.jpg" />
-                                  </image>
-                              </ImageView>
-                          </graphic>
-                          <VBox.margin>
-                              <Insets bottom="10.0" left="15.0" top="30.0" />
-                          </VBox.margin>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                      </Hyperlink>
-                      <Hyperlink layoutX="16.0" layoutY="16.0" onAction="#openPrepareQuiz" text="Thi thử KTLT">
-                          <graphic>
-                              <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                                  <image>
-                                      <Image url="@../../../assets/quiz-moodle.jpg" />
-                                  </image>
-                              </ImageView>
-                          </graphic>
-                          <VBox.margin>
-                              <Insets bottom="10.0" left="15.0" top="30.0" />
-                          </VBox.margin>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                      </Hyperlink>
-                      <Hyperlink layoutX="16.0" layoutY="46.0" onAction="#openPrepareQuiz" text="Thi GK2 Tin học 7">
-                          <graphic>
-                              <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                                  <image>
-                                      <Image url="@../../../assets/quiz-moodle.jpg" />
-                                  </image>
-                              </ImageView>
-                          </graphic>
-                          <VBox.margin>
-                              <Insets bottom="10.0" left="15.0" top="30.0" />
-                          </VBox.margin>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                      </Hyperlink>
-                      <Hyperlink layoutX="16.0" layoutY="76.0" onAction="#openPrepareQuiz" text="Thi GK2 Sử Địa 7">
-                          <graphic>
-                              <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                                  <image>
-                                      <Image url="@../../../assets/quiz-moodle.jpg" />
-                                  </image>
-                              </ImageView>
-                          </graphic>
-                          <VBox.margin>
-                              <Insets bottom="10.0" left="15.0" top="30.0" />
-                          </VBox.margin>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                      </Hyperlink>
-                      <Hyperlink layoutX="16.0" layoutY="106.0" onAction="#openPrepareQuiz" text="Thi GK2 môn Công nghệ">
-                          <graphic>
-                              <ImageView fitHeight="38.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                                  <image>
-                                      <Image url="@../../../assets/quiz-moodle.jpg" />
-                                  </image>
-                              </ImageView>
-                          </graphic>
-                          <VBox.margin>
-                              <Insets bottom="10.0" left="15.0" top="30.0" />
-                          </VBox.margin>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                      </Hyperlink>
-                  </children>
+               <padding>
+                  <Insets bottom="20.0" />
+               </padding>
               </VBox>
          </content>
       </ScrollPane>

@@ -37,8 +37,8 @@
         </HBox>
         <GridPane prefHeight="160.0" prefWidth="600.0" style="-fx-border-color: #b2bec3; -fx-border-insets: 5;">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1136.0" minWidth="10.0" prefWidth="1093.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="639.0" minWidth="10.0" prefWidth="195.0" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -84,7 +84,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                 </MenuButton>
-                <HBox GridPane.rowIndex="1">
+                <HBox prefHeight="34.0" prefWidth="666.0" GridPane.rowIndex="1">
                     <Hyperlink onAction="#goHomePage" text="Home" textFill="#da0d0d">
                         <font>
                             <Font size="16.0" />
@@ -131,7 +131,7 @@
                             <Insets top="2.0" />
                         </padding>
                     </Label>
-                    <Hyperlink layoutX="269.0" layoutY="10.0" text="Quiz Name" textFill="#da0d0d">
+                    <Hyperlink fx:id="quizNamePath" layoutX="269.0" layoutY="10.0" text="Quiz Name" textFill="#da0d0d">
                         <font>
                             <Font size="16.0" />
                         </font>
@@ -159,7 +159,7 @@
             <content>
                 <AnchorPane prefHeight="625.0" prefWidth="1300.0">
                     <children>
-                        <Label text="Editing Quiz: Quiz Name" textFill="#da0d0d" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0">
+                        <Label fx:id="quizLbl" text="Editing Quiz: Quiz Name" textFill="#da0d0d" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0">
                             <font>
                                 <Font size="22.0" />
                             </font>
@@ -183,7 +183,7 @@
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor></TextField>
-                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" style="-fx-background-color: #0984e3;" text="SAVE" textFill="WHITE" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="58.0">
+                        <Button mnemonicParsing="false" onAction="#saveChange" prefHeight="35.0" prefWidth="61.0" style="-fx-background-color: #0984e3;" text="SAVE" textFill="WHITE" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="58.0">
                             <font>
                                 <Font size="16.0" />
                             </font>
@@ -209,6 +209,11 @@
                         <Font size="14.0" />
                      </font>
                   </Text>
+                  <Text fx:id="totalMark" layoutX="1242.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="108.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
                   <CheckBox layoutX="1161.0" layoutY="135.0" mnemonicParsing="false" text="Shuffle" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="135.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -224,7 +229,7 @@
                            <graphic>
                               <Text fill="#0984e3" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20;" text="+" />
                            </graphic></MenuItem>
-                      <MenuItem mnemonicParsing="false" style="-fx-text-fill: #0984e3;" text="from question bank">
+                      <MenuItem mnemonicParsing="false" onAction="#addFromQB" style="-fx-text-fill: #0984e3;" text="from question bank">
                            <graphic>
                               <Text fill="#0984e3" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20;" text="+" />
                            </graphic></MenuItem>
@@ -238,6 +243,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </MenuButton>
+                  <VBox fx:id="questionVBox" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0" />
                     </children>
                 </AnchorPane>
             </content>

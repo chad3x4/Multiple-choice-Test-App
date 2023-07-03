@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScoreService {
+    public Score getScore(int value) {
+        Score s = new Score(value+"%");
+        return s;
+    }
     public List<Score> getScores() {
         List<Score> results = new ArrayList<>();
         for (int i=100; i>=0; i-=10) {

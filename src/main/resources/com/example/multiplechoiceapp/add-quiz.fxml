@@ -158,19 +158,19 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="216.0" layoutY="5.0" prefWidth="500.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="20.0" />
+                        <TextField fx:id="quizName" layoutX="216.0" layoutY="5.0" prefWidth="500.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="20.0" />
                         <Label layoutX="40.0" layoutY="94.0" text="Description" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="64.0">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextArea layoutX="400.0" layoutY="64.0" prefHeight="60.0" prefWidth="500.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="64.0" />
+                        <TextArea fx:id="quizDes" layoutX="400.0" layoutY="64.0" prefHeight="60.0" prefWidth="500.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="64.0" />
                         <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="364.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="365.0" AnchorPane.topAnchor="20.0">
                            <image>
                               <Image url="@../../../assets/info-circle.png" />
                            </image>
                         </ImageView>
-                        <CheckBox layoutX="400.0" layoutY="169.0" mnemonicParsing="false" text="Display description on course page" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0">
+                        <CheckBox fx:id="showDes" layoutX="400.0" layoutY="169.0" mnemonicParsing="false" text="Display description on course page" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -217,44 +217,44 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Spinner fx:id="openDay" layoutX="399.0" layoutY="12.0" prefWidth="50.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="12.0">
+                        <Spinner fx:id="openDay" disable="true" layoutX="399.0" layoutY="12.0" prefWidth="50.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="12.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Spinner>
-                        <Spinner fx:id="openMonth" layoutX="459.0" layoutY="12.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.topAnchor="12.0">
+                        <Spinner fx:id="openMonth" disable="true" layoutX="459.0" layoutY="12.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.topAnchor="12.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Spinner>
-                        <Spinner fx:id="openYear" layoutX="553.0" layoutY="13.0" prefWidth="70.0" AnchorPane.topAnchor="12.0">
+                        <Spinner fx:id="openYear" disable="true" layoutX="553.0" layoutY="13.0" prefWidth="70.0" AnchorPane.topAnchor="12.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Spinner>
-                        <Spinner fx:id="openMinute" layoutX="705.0" layoutY="13.0" prefWidth="50.0" AnchorPane.topAnchor="12.0">
+                        <Spinner fx:id="openMinute" disable="true" layoutX="705.0" layoutY="13.0" prefWidth="50.0" AnchorPane.topAnchor="12.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Spinner>
-                        <Spinner fx:id="openHour" layoutX="640.0" layoutY="13.0" prefWidth="50.0" AnchorPane.topAnchor="12.0">
+                        <Spinner fx:id="openHour" disable="true" layoutX="640.0" layoutY="13.0" prefWidth="50.0" AnchorPane.topAnchor="12.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Spinner>
                         <CheckBox disable="true" layoutX="790.0" layoutY="7.0" mnemonicParsing="false" opacity="0.51" text="Enable" AnchorPane.topAnchor="12.0" />
-                        <Spinner fx:id="closeDay" layoutX="398.0" layoutY="56.0" prefWidth="50.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="57.0">
+                        <Spinner fx:id="closeDay" disable="true" layoutX="398.0" layoutY="56.0" prefWidth="50.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="57.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Spinner>
-                        <Spinner fx:id="closeMonth" layoutX="459.0" layoutY="58.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.topAnchor="57.0">
+                        <Spinner fx:id="closeMonth" disable="true" layoutX="459.0" layoutY="58.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.topAnchor="57.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Spinner>
-                        <Spinner fx:id="closeYear" layoutX="553.0" layoutY="56.0" prefWidth="70.0" AnchorPane.topAnchor="57.0">
+                        <Spinner fx:id="closeYear" disable="true" layoutX="553.0" layoutY="56.0" prefWidth="70.0" AnchorPane.topAnchor="57.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Spinner>
-                        <Spinner fx:id="closeMinute" layoutX="705.0" layoutY="58.0" prefWidth="50.0" AnchorPane.topAnchor="57.0">
+                        <Spinner fx:id="closeMinute" disable="true" layoutX="705.0" layoutY="58.0" prefWidth="50.0" AnchorPane.topAnchor="57.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Spinner>
-                        <Spinner fx:id="closeHour" layoutX="640.0" layoutY="58.0" prefWidth="50.0" AnchorPane.topAnchor="57.0">
+                        <Spinner fx:id="closeHour" disable="true" layoutX="640.0" layoutY="58.0" prefWidth="50.0" AnchorPane.topAnchor="57.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Spinner>

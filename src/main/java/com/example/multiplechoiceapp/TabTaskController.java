@@ -3,6 +3,7 @@ package com.example.multiplechoiceapp;
 import com.example.conf.Noti;
 import com.example.conf.PathModifier;
 import com.example.pojo.Category;
+import com.example.pojo.EditingQuesSingleton;
 import com.example.pojo.Question;
 import com.example.service.CategoryService;
 import com.example.service.QuestionService;
@@ -18,13 +19,18 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -43,9 +49,14 @@ public class TabTaskController implements Initializable {
     @FXML private TextField catName;
     @FXML private TextArea catInfo;
     @FXML private TextField catId;
+    FileChooser fileChooser = new FileChooser();
+    File file = null;
+    @FXML private Label fileName;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        fileChooser.setInitialDirectory(new File("src\\"));
+
         CategoryService s = new CategoryService();
         QuestionService qs = new QuestionService();
         try {
@@ -125,6 +136,14 @@ public class TabTaskController implements Initializable {
             editButt.setStyle("-fx-background-color: none; -fx-text-fill: #0984e3; -fx-cursor: HAND");
             editButt.setOnAction((evt) -> {
                 //Open add-ques but in edit mode
+                EditingQuesSingleton.getInstance().setEditingQues(q);
+                System.out.println("Editing "+EditingQuesSingleton.getInstance().getEditingQues());
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("edit-ques.fxml"));
+                try {
+                    rootPane.getScene().setRoot(fxmlLoader.load());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             });
             AnchorPane quesPane = new AnchorPane(quesTxt, editButt);
             quesPane.setPadding(insetsItem);
@@ -159,8 +178,50 @@ public class TabTaskController implements Initializable {
             Noti.getBox("Add category failed!", Alert.AlertType.WARNING).show();
         }
     }
-    public void importFileHandler(ActionEvent e) {
+    public void browseFile() {
+        this.file = fileChooser.showOpenDialog(new Stage());
+        System.out.println(this.file.isFile());
+        fileName.setText(this.file.getName());
+    }
 
+    public static boolean checkFileExtension(String fullName) {
+        String fileName = new File(fullName).getName();
+        int dotIndex = fileName.lastIndexOf('.');
+        String extension =  (dotIndex == -1) ? "" : fileName.substring(dotIndex + 1);
+        System.out.println(extension);
+        if (extension.equals("txt") || extension.equals("docx")) return true;
+        else return false;
+    }
+
+    public static boolean isChoice(String content) {
+        return content.substring(1, 3).equals(". ");
+    }
+
+    public void importFileHandler(ActionEvent e) throws FileNotFoundException {
+        System.out.println(file);
+        System.out.println(fileName.getText());
+        System.out.println(checkFileExtension(fileName.getText()));
+        List<Question> questions = new ArrayList<>();
+
+//        Scanner scan = new Scanner(file);
+//
+//        while(scan.hasNextLine()) {
+//            String content = scan.nextLine();
+//            if (content.equals("\n")) ;
+//            else {
+//                String quesName;
+//                String choiceContent;
+//                if (isChoice(content)) choiceContent = content;
+//                else quesName = content;
+//            }
+//        }
+        if (file != null) {
+            if(checkFileExtension(fileName.getText())) {
+                System.out.println("The file has true format!");
+            } else Noti.getBox("The file has wrong format!", Alert.AlertType.WARNING).show();
+        } else {
+            Noti.getBox("You have to choose a file to import!", Alert.AlertType.WARNING).show();
+        }
     }
     public void goHomePage(ActionEvent e) throws IOException {
         rootPane.getScene().setRoot(new FXMLLoader(App.class.getResource("home-view.fxml")).load());

@@ -131,7 +131,7 @@
                      <Insets top="2.0" />
                   </padding>
                </Label>
-               <Hyperlink layoutX="269.0" layoutY="10.0" text="Quiz Name" textFill="#da0d0d">
+               <Hyperlink fx:id="quizNamePath" layoutX="269.0" layoutY="10.0" text="Quiz Name" textFill="#da0d0d">
                   <font>
                      <Font size="16.0" />
                   </font>
@@ -146,14 +146,14 @@
             <content>
                 <AnchorPane prefHeight="625.0" prefWidth="1300.0">
                     <children>
-                        <Label text="Quiz Name" textFill="#da0d0d" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0">
+                        <Label fx:id="quizNameLbl" text="Quiz Name" textFill="#da0d0d" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0">
                             <font>
                                 <Font size="22.0" />
                             </font>
                         </Label>
                   <VBox alignment="TOP_CENTER" maxWidth="36.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time limit: ">
+                        <Text fx:id="timeLimitLbl" strokeType="OUTSIDE" strokeWidth="0.0" text="Time limit: ">
                            <font>
                               <Font size="14.0" />
                            </font>

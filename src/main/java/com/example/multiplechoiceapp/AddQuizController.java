@@ -1,24 +1,29 @@
 package com.example.multiplechoiceapp;
 
+import com.example.conf.Noti;
+import com.example.pojo.Quiz;
+import com.example.service.QuizService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
 public class AddQuizController implements Initializable {
     @FXML private VBox rootPane;
+    @FXML private TextField quizName;
+    @FXML private TextArea quizDes;
+    @FXML private CheckBox showDes;
     @FXML private Spinner openDay;
     @FXML private Spinner openMonth;
     @FXML private Spinner openYear;
@@ -93,7 +98,23 @@ public class AddQuizController implements Initializable {
     }
 
     public void createQuizHandler() {
-
+        int timeLimit = Integer.parseInt(duration.getText());
+        String unit = (String)chooseUnit.getValue();
+        if (unit == "minutes") timeLimit *= 60;
+        if (unit == "hours") timeLimit *= 3600;
+        Quiz q = new Quiz(UUID.randomUUID().toString(), quizName.getText(), quizDes.getText(), timeLimit, showDes.isSelected());
+        QuizService qs = new QuizService();
+        try {
+            qs.addQuiz(q);
+            Noti.getBox("Add quiz successful!", Alert.AlertType.INFORMATION).show();
+        } catch (SQLException e) {
+            Noti.getBox("Add quiz failed!", Alert.AlertType.WARNING).show();
+        }
+        try {
+            goHomePage();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void enableDuration() {
