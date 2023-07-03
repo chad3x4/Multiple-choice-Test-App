@@ -7,17 +7,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -142,63 +143,1440 @@
                 </HBox>
             </children>
         </GridPane>
-        <ScrollPane prefHeight="510.0" style="-fx-border-color: #b2bec3; -fx-background-insets: 5;">
-            <content>
-                <AnchorPane prefHeight="625.0" prefWidth="1300.0">
-                    <children>
-                        <Label fx:id="quizNameLbl" text="Quiz Name" textFill="#da0d0d" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0">
-                            <font>
-                                <Font size="22.0" />
-                            </font>
+      <HBox prefHeight="583.0" prefWidth="1300.0">
+         <children>
+              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="571.0" prefWidth="945.0" style="-fx-border-color: #ffffff;">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #b2bec3; -fx-border-insets: 3;">
+                     <children>
+                        <Label prefHeight="33.0" prefWidth="150.0" style="-fx-border-color: #da0d0d;" text="Time left: 00:00:00">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="745.0" top="20.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="3.0" left="10.0" right="10.0" top="3.0" />
+                           </padding>
                         </Label>
-                        <VBox alignment="TOP_CENTER" maxWidth="36.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
-                            <children>
-                                <Text fx:id="timeLimitLbl" strokeType="OUTSIDE" strokeWidth="0.0" text="Time limit: ">
-                                    <font>
-                                        <Font size="14.0" />
-                                    </font>
-                                </Text>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grading method: Last attempt">
-                                    <font>
-                                        <Font size="14.0" />
-                                    </font>
-                                </Text>
-                            </children>
+                        <HBox prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="152.0" style="-fx-border-color: #b2bec3; -fx-background-color: #ecf0f1;">
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="115.0" style="-fx-font-weight: bold;" text="Question 1" textFill="#c23616">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not yet answered" wrappingWidth="101.24609375">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="21.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked out of 1.00" wrappingWidth="101.24609375">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="735.0" style="-fx-background-color: #c7ecee;">
+                                 <children>
+                                    <Label text="Chọn đáp án đúng:">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Theo bạn, đáp án nào chính xác">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" text="A. Đáp án">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="B. Đáp án">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="C. Đáp án">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="D. Đáp án">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="14.0" layoutY="77.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="152.0" style="-fx-border-color: #b2bec3; -fx-background-color: #ecf0f1;">
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="115.0" style="-fx-font-weight: bold;" text="Question 2" textFill="#c23616">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not yet answered" wrappingWidth="101.24609375">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="21.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked out of 1.00" wrappingWidth="101.24609375">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="735.0" style="-fx-background-color: #c7ecee;">
+                                 <children>
+                                    <Label text="Chọn đáp án đúng:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Theo bạn, đáp án nào chính xác">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" text="A. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="B. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="C. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="D. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="14.0" layoutY="277.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="152.0" style="-fx-border-color: #b2bec3; -fx-background-color: #ecf0f1;">
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="115.0" style="-fx-font-weight: bold;" text="Question 3" textFill="#c23616">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not yet answered" wrappingWidth="101.24609375">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="21.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked out of 1.00" wrappingWidth="101.24609375">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="735.0" style="-fx-background-color: #c7ecee;">
+                                 <children>
+                                    <Label text="Chọn đáp án đúng:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Theo bạn, đáp án nào chính xác">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" text="A. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="B. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="C. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="D. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="14.0" layoutY="462.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="152.0" style="-fx-border-color: #b2bec3; -fx-background-color: #ecf0f1;">
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="115.0" style="-fx-font-weight: bold;" text="Question 4" textFill="#c23616">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not yet answered" wrappingWidth="101.24609375">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="21.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked out of 1.00" wrappingWidth="101.24609375">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="735.0" style="-fx-background-color: #c7ecee;">
+                                 <children>
+                                    <Label text="Chọn đáp án đúng:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Theo bạn, đáp án nào chính xác">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" text="A. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="B. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="C. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="D. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="14.0" layoutY="637.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="152.0" style="-fx-border-color: #b2bec3; -fx-background-color: #ecf0f1;">
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="115.0" style="-fx-font-weight: bold;" text="Question 5" textFill="#c23616">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not yet answered" wrappingWidth="101.24609375">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="21.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked out of 1.00" wrappingWidth="101.24609375">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="735.0" style="-fx-background-color: #c7ecee;">
+                                 <children>
+                                    <Label text="Chọn đáp án đúng:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Theo bạn, đáp án nào chính xác">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" text="A. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="B. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="C. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="D. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="14.0" layoutY="792.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="152.0" style="-fx-border-color: #b2bec3; -fx-background-color: #ecf0f1;">
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="115.0" style="-fx-font-weight: bold;" text="Question 6" textFill="#c23616">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not yet answered" wrappingWidth="101.24609375">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="21.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked out of 1.00" wrappingWidth="101.24609375">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="735.0" style="-fx-background-color: #c7ecee;">
+                                 <children>
+                                    <Label text="Chọn đáp án đúng:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Theo bạn, đáp án nào chính xác">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" text="A. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="B. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="C. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="D. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="14.0" layoutY="947.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="152.0" style="-fx-border-color: #b2bec3; -fx-background-color: #ecf0f1;">
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="115.0" style="-fx-font-weight: bold;" text="Question 7" textFill="#c23616">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not yet answered" wrappingWidth="101.24609375">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="21.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked out of 1.00" wrappingWidth="101.24609375">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="735.0" style="-fx-background-color: #c7ecee;">
+                                 <children>
+                                    <Label text="Chọn đáp án đúng:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Theo bạn, đáp án nào chính xác">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" text="A. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="B. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="C. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="D. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="14.0" layoutY="1102.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="152.0" style="-fx-border-color: #b2bec3; -fx-background-color: #ecf0f1;">
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="115.0" style="-fx-font-weight: bold;" text="Question 8" textFill="#c23616">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not yet answered" wrappingWidth="101.24609375">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="21.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked out of 1.00" wrappingWidth="101.24609375">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="735.0" style="-fx-background-color: #c7ecee;">
+                                 <children>
+                                    <Label text="Chọn đáp án đúng:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Theo bạn, đáp án nào chính xác">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" text="A. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="B. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="C. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="D. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="14.0" layoutY="1257.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="152.0" style="-fx-border-color: #b2bec3; -fx-background-color: #ecf0f1;">
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="115.0" style="-fx-font-weight: bold;" text="Question 9" textFill="#c23616">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not yet answered" wrappingWidth="101.24609375">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="21.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked out of 1.00" wrappingWidth="101.24609375">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="735.0" style="-fx-background-color: #c7ecee;">
+                                 <children>
+                                    <Label text="Chọn đáp án đúng:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Theo bạn, đáp án nào chính xác">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" text="A. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="B. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="C. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="D. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="14.0" layoutY="1602.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="152.0" style="-fx-border-color: #b2bec3; -fx-background-color: #ecf0f1;">
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="115.0" style="-fx-font-weight: bold;" text="Question 10" textFill="#c23616">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not yet answered" wrappingWidth="101.24609375">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="21.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked out of 1.00" wrappingWidth="101.24609375">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="735.0" style="-fx-background-color: #c7ecee;">
+                                 <children>
+                                    <Label text="Chọn đáp án đúng:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Theo bạn, đáp án nào chính xác">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" text="A. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="B. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="C. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="D. Đáp án">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" top="8.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" />
+                     </padding>
+                  </VBox>
+               </content>
+              </ScrollPane>
+            <VBox prefHeight="571.0" prefWidth="438.0" style="-fx-border-insets: 5; -fx-border-color: #b2bec3;">
+               <children>
+                  <Label text="Quiz Navigation" textFill="#c23616">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" top="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Line endX="298.0" startX="-100.0">
+                     <VBox.margin>
+                        <Insets left="10.0" top="15.0" />
+                     </VBox.margin>
+                  </Line>
+                  <FlowPane prefHeight="479.0" prefWidth="409.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
-                        <Label text="Summary of your last attempts" textFill="#da0d0d" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="150.0">
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </Label>
-                        <TableView layoutX="32.0" layoutY="189.0" prefHeight="200.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="0.0">
-                            <columns>
-                                <TableColumn minWidth="770.0" prefWidth="-1.0" sortable="false" style="-fx-background-color: #0984e3; -fx-text-fill: #ffffff;" text="Attempt" />
-                                <TableColumn minWidth="500.0" prefWidth="-1.0" sortable="false" style="-fx-background-color: #0984e3;" text="State" />
-                            </columns>
-                        </TableView>
-                        <Button mnemonicParsing="false" onAction="#previewQuizHandler" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #0984e3;" text="Preview Quiz Now" textFill="WHITE" AnchorPane.leftAnchor="565.0" AnchorPane.rightAnchor="535.0" AnchorPane.topAnchor="420.0">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
+                        <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="92.0" layoutY="10.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="3">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane layoutX="11.0" layoutY="43.0" prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="174.0" layoutY="10.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="4">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="256.0" layoutY="10.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="5">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="220.0" layoutY="30.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="6">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="260.0" layoutY="10.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="7">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="290.0" layoutY="10.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="8">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="320.0" layoutY="10.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="9">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="25.0" layoutY="105.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="10">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="60.0" layoutY="85.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="11">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="92.0" layoutY="85.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="12">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="124.0" layoutY="85.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="13">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="156.0" layoutY="85.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="14">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="188.0" layoutY="85.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="15">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="220.0" layoutY="85.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="16">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="252.0" layoutY="85.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="17">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="284.0" layoutY="85.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="18">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="316.0" layoutY="85.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="19">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="348.0" layoutY="85.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="20">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="380.0" layoutY="85.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="21">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="180.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="22">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="50.0" layoutY="160.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="23">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="80.0" layoutY="160.0" prefHeight="45.0" prefWidth="30.0" style="-fx-border-color: #000000; -fx-border-insets: 0;">
+                           <children>
+                              <Label text="24">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="24.0" prefWidth="28.0" style="-fx-background-color: #b2bec3;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                        </VBox>
+                        <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="19.0" prefWidth="392.0" style="-fx-background-color: none;" text="Finish attempt..." textFill="#0984e3">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <FlowPane.margin>
+                              <Insets top="10.0" />
+                           </FlowPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#openEditQuiz" style="-fx-background-color: #ffffff;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
-                            <graphic>
-                                <ImageView fitHeight="23.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../assets/setting.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
-                    </children>
-                </AnchorPane>
-            </content>
-        </ScrollPane>
+                     </children>
+                  </FlowPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
     </children>
 </VBox>
