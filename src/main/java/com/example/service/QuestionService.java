@@ -47,6 +47,7 @@ public class QuestionService {
         try (Connection conn = JdbcUtils.getConn()) {
             conn.setAutoCommit(false);
             PreparedStatement stm = conn.prepareStatement("DELETE FROM question WHERE ques_id = ?;");
+            System.out.println("Editing in question "+q.getQuesId());
             stm.setString(1, q.getQuesId());
             stm.executeUpdate();
 

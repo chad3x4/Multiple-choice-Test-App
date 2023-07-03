@@ -98,10 +98,12 @@ public class EditQuesController implements Initializable {
         CategoryService cs = new CategoryService();
         EditingQuesSingleton instance = EditingQuesSingleton.getInstance();
         Question editingQues = instance.getEditingQues();
+        System.out.println("EditingQues is "+editingQues.getQuesId());
         Category c = cbCategories.getSelectionModel().getSelectedItem();
         Question q;
-        if (c.getCatId() == editingQues.getCatId()) {
+        if (c.getCatId().equals(editingQues.getCatId())) {
             q = new Question(editingQues.getQuesId(), c.getCatId(), quesName.getText(), quesText.getText(), "");
+            System.out.println("EditingQues is "+editingQues.getQuesId()+" and newQues is "+q.getQuesId());
         } else {
             System.out.println(editingQues.getQuesId() +" -> "+ c.getCatId());
             cs.quesChangeCategories(editingQues.getCatId(), c.getCatId());
@@ -124,9 +126,9 @@ public class EditQuesController implements Initializable {
             qs.updateQuestion(q, choices);
             instance.setEditingQues(q);
 
-            Noti.getBox("Add question successful!", Alert.AlertType.INFORMATION).show();
+            Noti.getBox("Edit question successful!", Alert.AlertType.INFORMATION).show();
         } catch (Exception ex) {
-            Noti.getBox("Add question failed!", Alert.AlertType.WARNING).show();
+            Noti.getBox("Edit question failed!", Alert.AlertType.WARNING).show();
 //            ex.printStackTrace();
         }
     }
