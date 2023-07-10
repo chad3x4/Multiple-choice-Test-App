@@ -1,2 +1,2 @@
-# Multiple-choices-test-app
+# Multiple-choice Test App
 ![img.png](img.png)
