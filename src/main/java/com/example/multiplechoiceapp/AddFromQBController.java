@@ -76,8 +76,8 @@ public class AddFromQBController implements Initializable {
             int[] duplicate = new int[10];
             //Remove duplicate questions
             for (int i = 0; i< questions.size(); i++) {
-                for (int j = 0; j<available.size(); j++) {
-                    if (questions.get(i).getQuesId().equals(available.get(j).getQuesId())) {
+                for (Question question : available) {
+                    if (questions.get(i).getQuesId().equals(question.getQuesId())) {
                         questions.remove(i);
                         i--;
                         break;

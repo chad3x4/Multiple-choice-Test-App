@@ -2,7 +2,7 @@ module com.example.multiplechoicesapp {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
-    requires itextpdf;
+//    requires itextpdf;
 
     requires org.controlsfx.controls;
 

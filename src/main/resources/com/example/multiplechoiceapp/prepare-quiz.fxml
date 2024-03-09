@@ -118,24 +118,11 @@
                             <Insets top="2.0" />
                         </padding>
                     </Label>
-                    <Hyperlink layoutX="163.0" layoutY="10.0" text="General" textFill="#da0d0d">
-                        <font>
-                            <Font size="16.0" />
-                        </font>
-                    </Hyperlink>
-               <Label layoutX="262.0" layoutY="10.0" prefHeight="23.0" prefWidth="2.0" text="/">
-                  <font>
-                     <Font size="16.0" />
-                  </font>
-                  <padding>
-                     <Insets top="2.0" />
-                  </padding>
-               </Label>
-               <Hyperlink fx:id="quizNamePath" layoutX="269.0" layoutY="10.0" text="Quiz Name" textFill="#da0d0d">
-                  <font>
-                     <Font size="16.0" />
-                  </font>
-               </Hyperlink>
+                   <Hyperlink fx:id="quizNamePath" layoutX="269.0" layoutY="10.0" text="Quiz Name" textFill="#da0d0d">
+                      <font>
+                         <Font size="16.0" />
+                      </font>
+                   </Hyperlink>
                     <GridPane.margin>
                         <Insets left="15.0" top="15.0" />
                     </GridPane.margin>

@@ -15,7 +15,10 @@ public class App extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         primaryStage.setTitle("Multiple Choice Test App");
         primaryStage.setScene(scene);
-        primaryStage.setMaximized(true);
+        primaryStage.setMinWidth(1360);
+        primaryStage.setMaxWidth(1360);
+        primaryStage.setMinHeight(760);
+        primaryStage.setMaxHeight(760);
         primaryStage.show();
     }
 

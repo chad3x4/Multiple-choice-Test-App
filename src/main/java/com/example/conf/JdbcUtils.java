@@ -15,6 +15,6 @@ public class JdbcUtils {
     }
 
     public static Connection getConn() throws SQLException {
-        return DriverManager.getConnection("jdbc:sqlite:src/main/java/db/oopapp.db");
+        return DriverManager.getConnection("jdbc:sqlite:src/main/java/db/app.db");
     }
 }

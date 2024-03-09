@@ -116,19 +116,6 @@
                             <Insets top="2.0" />
                         </padding>
                     </Label>
-                    <Hyperlink layoutX="163.0" layoutY="10.0" text="General" textFill="#da0d0d">
-                        <font>
-                            <Font size="16.0" />
-                        </font>
-                    </Hyperlink>
-                    <Label layoutX="262.0" layoutY="10.0" prefHeight="23.0" prefWidth="2.0" text="/">
-                        <font>
-                            <Font size="16.0" />
-                        </font>
-                        <padding>
-                            <Insets top="2.0" />
-                        </padding>
-                    </Label>
                     <Hyperlink fx:id="quizNamePath" layoutX="269.0" layoutY="10.0" text="Quiz Name" textFill="#da0d0d">
                         <font>
                             <Font size="16.0" />
@@ -159,7 +146,7 @@
                <content>
                   <VBox fx:id="renderPane" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #b2bec3; -fx-border-insets: 3;">
                      <children>
-                        <Label fx:id="countDownLabel" prefHeight="33.0" prefWidth="150.0" style="-fx-border-color: #da0d0d;" text="Time left: 00:00:00">
+                        <Label fx:id="countDownLabel" prefHeight="33.0" prefWidth="180.0" style="-fx-border-color: #da0d0d;" text="Time left: 00:00:00">
                            <font>
                               <Font size="16.0" />
                            </font>

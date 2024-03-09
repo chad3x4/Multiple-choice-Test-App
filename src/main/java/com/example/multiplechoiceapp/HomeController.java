@@ -79,13 +79,7 @@ public class HomeController implements Initializable {
             test.setGraphic(logo);
             test.setGraphicTextGap(4);
             VBox.setMargin(test, insetsTest);
-            if (q.getShowDes()) {
-                Label des = new Label("Description: " + q.getQuizDes());
-                VBox.setMargin(des, new Insets(0, 0, 0, 60));
-                testList.getChildren().addAll(test, des);
-            } else {
-                testList.getChildren().add(test);
-            }
+            testList.getChildren().add(test);
         }
     }
 

@@ -5,9 +5,9 @@ import com.example.service.AttemptService;
 import com.example.service.ChoiceService;
 import com.example.service.QuestionService;
 import com.example.service.ScoreService;
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.BaseFont;
-import com.itextpdf.text.pdf.PdfWriter;
+//import com.itextpdf.text.*;
+//import com.itextpdf.text.pdf.BaseFont;
+//import com.itextpdf.text.pdf.PdfWriter;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -138,88 +138,88 @@ public class PrepareQuizController implements Initializable {
         });
 
         exportButton.setOnAction(event -> {
-            try {
-                exportToPdf();
-            } catch (DocumentException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                exportToPdf();
+//            } catch (DocumentException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
             popupStage.close();
         });
 
         popupStage.showAndWait();
     }
 
-    public void exportToPdf() throws DocumentException, IOException {
-        AttemptingQuizSingleton instance = AttemptingQuizSingleton.getInstance();
-        QuestionService qs = new QuestionService();
-        ChoiceService cs = new ChoiceService();
-        Document document = new Document();
-        BaseFont baseFont = BaseFont.createFont("C:/Windows/Fonts/times.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-        Font font = new Font(baseFont, 16);
-        try {
-            PdfWriter.getInstance(document, new FileOutputStream("src/main/java/com/example/pdfexported/Quiz.pdf"));
-            document.open();
-            List<Question> questions = qs.getQuestions(instance.getAttemptingQuiz().getQuizId());
-            Collections.shuffle(questions);
-            List<Choice> choices = new ArrayList<>();
-            int num = 0;
-            for (Question q : questions) {
-                num ++;
-                Phrase quesNamePhr = new Phrase(q.getQuesName(), font);
-                Paragraph quesName = new Paragraph(num+". ", font);
-                quesName.add(quesNamePhr);
-                Paragraph quesText = new Paragraph(q.getQuesText(), font);
-                quesText.setIndentationLeft(20);
-                document.add(quesName);
-                document.add(quesText);
-                choices = cs.getChoices(q.getQuesId());
-                Phrase a = new Phrase("A. ", font);
-                Phrase b = new Phrase("B. ", font);
-                Phrase c = new Phrase("C. ", font);
-                Phrase d = new Phrase("D. ", font);
-                int index = 0;
-                String answerPgr = "Đáp án là: ";
-                for (Choice choice: choices) {
-                    index ++;
-                    Paragraph choiceABCD = new Paragraph();
-                    choiceABCD.setFont(font);
-                    choiceABCD.setIndentationLeft(20);
-                    switch (index){
-                        case 1:
-                            choiceABCD.add(a);
-                            if (choice.getScore()>0) answerPgr += "A, ";
-                            break;
-                        case 2:
-                            choiceABCD.add(b);
-                            if (choice.getScore()>0) answerPgr += "B, ";
-                            break;
-                        case 3:
-                            choiceABCD.add(c);
-                            if (choice.getScore()>0) answerPgr += "C, ";
-                            break;
-                        case 4:
-                            choiceABCD.add(d);
-                            if (choice.getScore()>0) answerPgr += "D, ";
-                            break;
-                    };
-                    Phrase choiceContent = new Phrase(choice.getContent(), font);
-                    choiceABCD.add(choiceContent);
-                    document.add(choiceABCD);
-                }
-                answerPgr = answerPgr.substring(0, answerPgr.length()-2);
-                Paragraph answerPara = new Paragraph(answerPgr, font);
-                document.add(answerPara);
-            }
-            document.close();
-
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void exportToPdf() throws DocumentException, IOException {
+//        AttemptingQuizSingleton instance = AttemptingQuizSingleton.getInstance();
+//        QuestionService qs = new QuestionService();
+//        ChoiceService cs = new ChoiceService();
+//        Document document = new Document();
+//        BaseFont baseFont = BaseFont.createFont("C:/Windows/Fonts/times.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+//        Font font = new Font(baseFont, 16);
+//        try {
+//            PdfWriter.getInstance(document, new FileOutputStream("src/main/java/com/example/pdfexported/Quiz.pdf"));
+//            document.open();
+//            List<Question> questions = qs.getQuestions(instance.getAttemptingQuiz().getQuizId());
+//            Collections.shuffle(questions);
+//            List<Choice> choices = new ArrayList<>();
+//            int num = 0;
+//            for (Question q : questions) {
+//                num ++;
+//                Phrase quesNamePhr = new Phrase(q.getQuesName(), font);
+//                Paragraph quesName = new Paragraph(num+". ", font);
+//                quesName.add(quesNamePhr);
+//                Paragraph quesText = new Paragraph(q.getQuesText(), font);
+//                quesText.setIndentationLeft(20);
+//                document.add(quesName);
+//                document.add(quesText);
+//                choices = cs.getChoices(q.getQuesId());
+//                Phrase a = new Phrase("A. ", font);
+//                Phrase b = new Phrase("B. ", font);
+//                Phrase c = new Phrase("C. ", font);
+//                Phrase d = new Phrase("D. ", font);
+//                int index = 0;
+//                String answerPgr = "Đáp án là: ";
+//                for (Choice choice: choices) {
+//                    index ++;
+//                    Paragraph choiceABCD = new Paragraph();
+//                    choiceABCD.setFont(font);
+//                    choiceABCD.setIndentationLeft(20);
+//                    switch (index){
+//                        case 1:
+//                            choiceABCD.add(a);
+//                            if (choice.getScore()>0) answerPgr += "A, ";
+//                            break;
+//                        case 2:
+//                            choiceABCD.add(b);
+//                            if (choice.getScore()>0) answerPgr += "B, ";
+//                            break;
+//                        case 3:
+//                            choiceABCD.add(c);
+//                            if (choice.getScore()>0) answerPgr += "C, ";
+//                            break;
+//                        case 4:
+//                            choiceABCD.add(d);
+//                            if (choice.getScore()>0) answerPgr += "D, ";
+//                            break;
+//                    };
+//                    Phrase choiceContent = new Phrase(choice.getContent(), font);
+//                    choiceABCD.add(choiceContent);
+//                    document.add(choiceABCD);
+//                }
+//                answerPgr = answerPgr.substring(0, answerPgr.length()-2);
+//                Paragraph answerPara = new Paragraph(answerPgr, font);
+//                document.add(answerPara);
+//            }
+//            document.close();
+//
+//        } catch (DocumentException e) {
+//            e.printStackTrace();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
